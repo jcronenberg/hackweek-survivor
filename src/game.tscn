@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgo4jknqxinhf"]
+
+[ext_resource type="PackedScene" uid="uid://ctow5dh60gvg4" path="res://src/player.tscn" id="1_7uq6d"]
+[ext_resource type="Texture2D" uid="uid://dj3pq08do280r" path="res://assets/Dirt_14-128x128.png" id="3_kc8ui"]
+[ext_resource type="PackedScene" uid="uid://dcai8d26135ma" path="res://src/enemy_godot.tscn" id="3_xq6wo"]
+[ext_resource type="PackedScene" uid="uid://in34g42h8glb" path="res://src/ui.tscn" id="4_kc8ui"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 1080)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+z_index = -1
+texture_repeat = 2
+texture = ExtResource("3_kc8ui")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("4_kc8ui")]
+
+[node name="Player" parent="." instance=ExtResource("1_7uq6d")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="EnemyGodot" parent="." instance=ExtResource("3_xq6wo")]
+position = Vector2(960, 540)
+speed = null
+
+[node name="EnemyGodot2" parent="." instance=ExtResource("3_xq6wo")]
+position = Vector2(580, 528)
+speed = null
+
+[node name="EnemyGodot3" parent="." instance=ExtResource("3_xq6wo")]
+position = Vector2(901, 327)
+speed = null
+
+[node name="EnemyGodot4" parent="." instance=ExtResource("3_xq6wo")]
+position = Vector2(714, 246)
+speed = null

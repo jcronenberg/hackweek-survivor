@@ -27,6 +27,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="Player" type="Area2D"]
+physics_interpolation_mode = 2
 script = ExtResource("1_gmfve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

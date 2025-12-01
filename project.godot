@@ -19,11 +19,19 @@ config/icon="res://icon.svg"
 
 Global="*res://src/global.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 

@@ -1,10 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcai8d26135ma"]
+[gd_scene load_steps=6 format=3 uid="uid://dcai8d26135ma"]
 
 [ext_resource type="Texture2D" uid="uid://dvvgahiu7x7nr" path="res://icon.svg" id="1_f4jwh"]
 [ext_resource type="Script" uid="uid://ccj7w5haclxtr" path="res://src/enemy_godot.gd" id="1_pr8ka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pr8ka"]
 size = Vector2(64, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr8ka"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy0gn"]
+bg_color = Color(0.9192808, 4.47616e-06, 1.1551381e-06, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="EnemyGodot" type="Area2D"]
 script = ExtResource("1_pr8ka")
@@ -17,3 +36,14 @@ texture = ExtResource("1_f4jwh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_pr8ka")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -32.5
+offset_top = 10.0
+offset_right = 32.5
+offset_bottom = 24.04
+theme_override_styles/background = SubResource("StyleBoxFlat_pr8ka")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wy0gn")
+value = 100.0
+show_percentage = false

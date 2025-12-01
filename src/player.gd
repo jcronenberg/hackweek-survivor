@@ -4,15 +4,12 @@ extends Area2D
 @export var speed: int = 400
 @export var max_health: int = 100
 @export var health: int = 100
+const damage_tick_time = 0.3
 
 var collided_enemies: Array[Enemy] = []
 var flashing_state_red: bool = false
 var flashing_state_delta_time: float = 0.0
 var damage_delta_time: float = 0.0
-
-
-func _ready() -> void:
-	Global.get_ui().update_player_health(health)
 
 
 func _process(delta: float) -> void:
@@ -58,18 +55,19 @@ func _calculate_damage(delta: float) -> void:
 				health -= enemy.damage
 				health = clamp(health, 0, max_health)
 
-			Global.get_ui().update_player_health(health)
+			_update_health_bar()
 
 			if health <= 0:
 				Global.game_over.emit()
-			damage_delta_time = 0.2 # How often damage is applied
+
+			damage_delta_time = damage_tick_time
 	else:
 		damage_delta_time = 0.0
 
 
 func _show_damage(delta: float) -> void:
 	if collided_enemies.size() > 0:
-		if flashing_state_delta_time >= 0.2:
+		if flashing_state_delta_time >= damage_tick_time:
 			flashing_state_red = not flashing_state_red
 			flashing_state_delta_time = 0
 
@@ -79,3 +77,8 @@ func _show_damage(delta: float) -> void:
 		modulate = Color(1, 1, 1, 1)
 		flashing_state_delta_time = 0.0
 		flashing_state_red = false
+
+
+func _update_health_bar() -> void:
+	%HealthBar.value = health
+	%HealthBar.visible = health != max_health

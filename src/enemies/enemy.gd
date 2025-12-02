@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed: int = 200
 @export var damage: int = 3
 @export var health: int = 20
+@export var weight: int = 20
 
 
 func _ready() -> void:

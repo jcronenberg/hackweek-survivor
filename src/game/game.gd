@@ -5,13 +5,22 @@ const ENEMY_BOSS_SEGFAULT = preload("uid://cnfw626eys7b")
 
 @export var spawn_rate: float = 0.5
 var spawn_delta_time: float = 1.0
+var spawn_amount: int = 1
+var increase_spawn_amount: float = 60.0
+var increase_spawn_amount_time: float = 0.0
 
 
 func _physics_process(delta: float) -> void:
 	spawn_delta_time += delta
 	if spawn_delta_time >= spawn_rate:
-		_spawn_enemy()
+		for _i in spawn_amount:
+			_spawn_enemy()
 		spawn_delta_time = 0.0
+
+	increase_spawn_amount_time += delta
+	if increase_spawn_amount_time >= increase_spawn_amount:
+		spawn_amount += 1
+		increase_spawn_amount_time = 0.0
 
 
 ## This spawning algorithm basically picks a random point a line which is the

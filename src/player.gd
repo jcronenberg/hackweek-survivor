@@ -13,16 +13,14 @@ var damage_delta_time: float = 0.0
 @onready var player_sprite: Sprite2D = $PlayerSprite
 
 
-func _process(_delta: float) -> void:
+func _move() -> void:
 	var direction = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
-		rotation_degrees = 0
-		scale.y = 1
+		player_sprite.flip_h = false
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-		rotation_degrees = 180
-		scale.y = -1
+		player_sprite.flip_h = true
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
 	if Input.is_action_pressed("ui_up"):
@@ -33,6 +31,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	_move()
 	_show_damage(delta)
 	_calculate_damage(delta)
 

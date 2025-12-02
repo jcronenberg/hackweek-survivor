@@ -4,7 +4,7 @@ const ENEMY_GODOT = preload("uid://dcai8d26135ma")
 const ENEMY_BOSS_SEGFAULT = preload("uid://cnfw626eys7b")
 
 @export var spawn_rate: float = 3.0
-var spawn_delta_time: float = 0.0
+var spawn_delta_time: float = 3.0
 
 
 func _physics_process(delta: float) -> void:

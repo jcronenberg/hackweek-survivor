@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctow5dh60gvg4"]
 
 [ext_resource type="Script" uid="uid://c3yehy4r7k132" path="res://src/player.gd" id="1_gmfve"]
-[ext_resource type="Texture2D" uid="uid://dlumu68jnlia7" path="res://assets/hack-week-25_logo_geeko_dunkel.png" id="1_lowyb"]
+[ext_resource type="Texture2D" uid="uid://cragpynj53krg" path="res://assets/hw_geeko_pixel.png" id="2_gmfve"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lowyb"]
 radius = 30.0
@@ -31,9 +31,9 @@ physics_interpolation_mode = 2
 script = ExtResource("1_gmfve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-16.68, -81.16)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("1_lowyb")
+position = Vector2(-16.999996, -82.25)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_gmfve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-37.48, -30.160004)

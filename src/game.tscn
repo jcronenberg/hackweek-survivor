@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctow5dh60gvg4" path="res://src/player.tscn" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://b52at8u5bo2qk" path="res://src/game.gd" id="1_bs6l1"]
-[ext_resource type="Texture2D" uid="uid://dj3pq08do280r" path="res://assets/Dirt_14-128x128.png" id="3_kc8ui"]
+[ext_resource type="Texture2D" uid="uid://b2tvu0e8fk28v" path="res://assets/floor.png" id="2_kc8ui"]
 [ext_resource type="PackedScene" uid="uid://in34g42h8glb" path="res://src/ui.tscn" id="4_kc8ui"]
 
 [node name="Game" type="Node2D"]
@@ -10,15 +10,16 @@ y_sort_enabled = true
 script = ExtResource("1_bs6l1")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(1920, 1080)
-repeat_times = 3
+scale = Vector2(2, 2)
+repeat_size = Vector2(480, 270)
+repeat_times = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 z_index = -1
 texture_repeat = 2
-texture = ExtResource("3_kc8ui")
+texture = ExtResource("2_kc8ui")
 region_enabled = true
-region_rect = Rect2(0, 0, 1920, 1080)
+region_rect = Rect2(0, 0, 480, 270)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

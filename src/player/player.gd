@@ -7,9 +7,8 @@ extends CharacterBody2D
 const damage_tick_time = 0.3
 
 var collided_enemies: Array[Enemy] = []
-var flashing_state_red: bool = false
-var flashing_state_delta_time: float = 0.0
 var damage_delta_time: float = 0.0
+var damage_tween: Tween
 @onready var player_sprite: Sprite2D = $PlayerSprite
 
 
@@ -36,7 +35,6 @@ func _move() -> void:
 
 func _physics_process(delta: float) -> void:
 	_move()
-	_show_damage(delta)
 	_calculate_damage(delta)
 
 
@@ -49,6 +47,7 @@ func _calculate_damage(delta: float) -> void:
 				health = clamp(health, 0, max_health)
 
 			_update_health_bar()
+			_show_damage()
 
 			if health <= 0:
 				Global.game_over.emit()
@@ -58,18 +57,13 @@ func _calculate_damage(delta: float) -> void:
 		damage_delta_time = 0.0
 
 
-func _show_damage(delta: float) -> void:
-	if collided_enemies.size() > 0:
-		if flashing_state_delta_time >= damage_tick_time:
-			flashing_state_red = not flashing_state_red
-			flashing_state_delta_time = 0
+func _show_damage() -> void:
+	if damage_tween:
+		damage_tween.kill()
 
-		flashing_state_delta_time += delta
-		modulate = Color(0.656, 0.0, 0.0, 1.0) if flashing_state_red else Color(1.0, 0.355, 0.288, 1.0)
-	else:
-		modulate = Color(1, 1, 1, 1)
-		flashing_state_delta_time = 0.0
-		flashing_state_red = false
+	damage_tween = create_tween()
+	damage_tween.tween_property(self, "modulate", Color.RED, 0.05)
+	damage_tween.tween_property(self, "modulate", Color.WHITE, 0.05).set_delay(0.05)
 
 
 func _update_health_bar() -> void:

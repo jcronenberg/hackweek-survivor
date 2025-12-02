@@ -30,17 +30,17 @@ corner_radius_bottom_left = 2
 physics_interpolation_mode = 2
 script = ExtResource("1_gmfve")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(-16.999996, -82.25)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_gmfve")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-37.48, -30.160004)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_lowyb")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="PlayerCollision2" type="CollisionPolygon2D" parent="."]
 position = Vector2(-16.48, -35.160004)
 polygon = PackedVector2Array(-9, 35, 45, 35, 28, -12, -8, -25)
 

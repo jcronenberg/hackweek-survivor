@@ -16,4 +16,11 @@ func move_to_player(delta: float) -> void:
 		return
 	var velocity: Vector2 = position.direction_to(player_pos).normalized() * speed * delta
 
+	if velocity.x > 0: # right
+		rotation_degrees = 0
+		scale.y = 1
+	else: # left
+		rotation_degrees = 180
+		scale.y = -1
+
 	position += velocity

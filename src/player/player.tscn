@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctow5dh60gvg4"]
 
-[ext_resource type="Script" uid="uid://c3yehy4r7k132" path="res://src/player.gd" id="1_gmfve"]
+[ext_resource type="Script" uid="uid://c3yehy4r7k132" path="res://src/player/player.gd" id="1_gmfve"]
 [ext_resource type="Texture2D" uid="uid://cragpynj53krg" path="res://assets/hw_geeko_pixel.png" id="2_gmfve"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lowyb"]
@@ -38,6 +38,8 @@ script = ExtResource("1_gmfve")
 position = Vector2(6.4000025, -82.399994)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_gmfve")
+
+[node name="WeaponRam" type="Node2D" parent="PlayerSprite"]
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5999985, -18.149994)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnfw626eys7b"]
 
-[ext_resource type="Script" uid="uid://ldaxyfvtpn4p" path="res://src/enemy_boss_segfault.gd" id="1_oxoje"]
+[ext_resource type="Script" uid="uid://ldaxyfvtpn4p" path="res://src/enemies/enemy_boss_segfault.gd" id="1_oxoje"]
 [ext_resource type="Texture2D" uid="uid://bag8mhmmtb286" path="res://assets/segfault_boss.png" id="1_rlsfh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxoje"]

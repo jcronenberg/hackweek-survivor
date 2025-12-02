@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgo4jknqxinhf"]
 
-[ext_resource type="PackedScene" uid="uid://ctow5dh60gvg4" path="res://src/player.tscn" id="1_7uq6d"]
-[ext_resource type="Script" uid="uid://b52at8u5bo2qk" path="res://src/game.gd" id="1_bs6l1"]
+[ext_resource type="PackedScene" uid="uid://ctow5dh60gvg4" path="res://src/player/player.tscn" id="1_7uq6d"]
+[ext_resource type="Script" uid="uid://b52at8u5bo2qk" path="res://src/game/game.gd" id="1_bs6l1"]
 [ext_resource type="Texture2D" uid="uid://b2tvu0e8fk28v" path="res://assets/floor.png" id="2_kc8ui"]
-[ext_resource type="PackedScene" uid="uid://in34g42h8glb" path="res://src/ui.tscn" id="4_kc8ui"]
+[ext_resource type="PackedScene" uid="uid://in34g42h8glb" path="res://src/ui/ui.tscn" id="4_kc8ui"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true

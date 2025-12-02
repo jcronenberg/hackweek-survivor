@@ -1,5 +1,5 @@
 class_name Player
-extends Area2D
+extends CharacterBody2D
 
 @export var speed: int = 400
 @export var max_health: int = 100
@@ -13,43 +13,28 @@ var damage_delta_time: float = 0.0
 @onready var player_sprite: Sprite2D = $PlayerSprite
 
 
-func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO # The player's movement vector.
+func _process(_delta: float) -> void:
+	var direction = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
+		direction.x += 1
 		rotation_degrees = 0
 		scale.y = 1
 	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
+		direction.x -= 1
 		rotation_degrees = 180
 		scale.y = -1
 	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
+		direction.y += 1
 	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
+		direction.y -= 1
 
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-
-	position += velocity * delta
+	velocity = direction.normalized() * speed
+	move_and_slide()
 
 
 func _physics_process(delta: float) -> void:
 	_show_damage(delta)
 	_calculate_damage(delta)
-
-
-func _on_area_entered(area: Area2D) -> void:
-	if not area is Enemy:
-		return
-	if not collided_enemies.has(area):
-		collided_enemies.append(area)
-
-
-func _on_area_exited(area: Area2D) -> void:
-	if not area is Enemy:
-		return
-	collided_enemies.erase(area)
 
 
 func _calculate_damage(delta: float) -> void:
@@ -87,3 +72,16 @@ func _show_damage(delta: float) -> void:
 func _update_health_bar() -> void:
 	%HealthBar.value = health
 	%HealthBar.visible = health != max_health
+
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	if not body is Enemy:
+		return
+	if not collided_enemies.has(body):
+		collided_enemies.append(body)
+
+
+func _on_damage_area_body_exited(body: Node2D) -> void:
+	if not body is Enemy:
+		return
+	collided_enemies.erase(body)

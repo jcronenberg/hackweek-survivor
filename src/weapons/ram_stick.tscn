@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ldc5brsy4ed"]
+
+[ext_resource type="Script" uid="uid://bupqxm2gktyjc" path="res://src/weapons/ram_stick.gd" id="1_0xism"]
+[ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/ram_stick.png" id="1_e2cwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xism"]
+size = Vector2(116, 36)
+
+[node name="RamStick" type="Area2D"]
+top_level = true
+script = ExtResource("1_0xism")
+
+[node name="RamStick" type="Sprite2D" parent="."]
+texture = ExtResource("1_e2cwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0xism")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-58, -18, 116, 36)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

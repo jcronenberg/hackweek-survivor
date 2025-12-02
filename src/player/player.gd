@@ -13,6 +13,10 @@ var damage_delta_time: float = 0.0
 @onready var player_sprite: Sprite2D = $PlayerSprite
 
 
+func _ready() -> void:
+	add_child(WeaponRam.new())
+
+
 func _move() -> void:
 	var direction = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("ui_right"):

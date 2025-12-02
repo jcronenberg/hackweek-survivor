@@ -39,8 +39,6 @@ position = Vector2(6.4000025, -82.399994)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_gmfve")
 
-[node name="WeaponRam" type="Node2D" parent="PlayerSprite"]
-
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5999985, -18.149994)
 rotation = 1.5707964

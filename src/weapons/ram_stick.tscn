@@ -4,20 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="1_e2cwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xism"]
-size = Vector2(116, 36)
+size = Vector2(70, 22)
 
 [node name="RamStick" type="Area2D"]
 top_level = true
 script = ExtResource("1_0xism")
 
 [node name="RamStick" type="Sprite2D" parent="."]
+scale = Vector2(0.59375, 0.59375)
 texture = ExtResource("1_e2cwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0xism")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-58, -18, 116, 36)
+rect = Rect2(-35, -11, 70, 22)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

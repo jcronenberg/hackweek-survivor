@@ -29,7 +29,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
-[node name="Menu" type="CenterContainer" parent="."]
+[node name="Menu" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -39,11 +39,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5372549)
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="GameOverLabel" type="Label" parent="Menu/VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="Menu/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -53,9 +70,9 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 106
 text = "Game over"
 
-[node name="MenuButton" type="Button" parent="Menu/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Return to menu"
 
-[connection signal="pressed" from="Menu/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

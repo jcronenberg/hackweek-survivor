@@ -1988,6 +1988,7 @@ region_rect = Rect2(0, 0, 480, 270)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Ui" parent="CanvasLayer" instance=ExtResource("4_kc8ui")]
+unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("1_7uq6d")]
 

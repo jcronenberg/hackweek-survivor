@@ -12,6 +12,11 @@ var increase_spawn_amount_time: float = 0.0
 @onready var spawn_rect: Rect2 = %SpawnAreaShape.shape.get_rect()
 
 
+func _ready() -> void:
+	Global.ui = %Ui
+	Global.kill_count = 0
+
+
 func _physics_process(delta: float) -> void:
 	spawn_delta_time += delta
 	if spawn_delta_time >= spawn_rate:

@@ -10,10 +10,12 @@ var collided_enemies: Array[Enemy] = []
 var damage_delta_time: float = 0.0
 var damage_tween: Tween
 @onready var player_sprite: Sprite2D = $PlayerSprite
+var weapon: Weapon = null
 
 
 func _ready() -> void:
-	add_child(WeaponRam.new())
+	weapon = WeaponRam.new()
+	add_child(weapon)
 
 
 func _move() -> void:

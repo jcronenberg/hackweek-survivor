@@ -22,6 +22,10 @@ func set_game_over(state: bool) -> void:
 		%MenuButton.grab_focus()
 
 
+func set_kill_count(amount: int) -> void:
+	%KillCountLabel.text = "Kills: %s" % amount
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		paused = not paused

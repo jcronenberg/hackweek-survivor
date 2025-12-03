@@ -34,12 +34,17 @@ func move_to_player(_delta: float) -> void:
 func get_damage_dealt(amount: int) -> void:
 	health -= amount
 	if health == 0:
-		set_process(false)
-		set_physics_process(false)
-		var tween: Tween = get_tree().create_tween()
-		tween.tween_property(self, "modulate:v", 1, 0.1).from(10)
-		tween.tween_property(self, "scale", Vector2(), 0.1)
-		tween.tween_callback(queue_free)
+		_die()
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property(self, "modulate:v", 1, 0.25).from(10)
+
+
+func _die() -> void:
+	set_process(false)
+	set_physics_process(false)
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:v", 1, 0.1).from(10)
+	tween.tween_property(self, "scale", Vector2(), 0.1)
+	tween.tween_callback(queue_free)
+	Global.kill_count += 1

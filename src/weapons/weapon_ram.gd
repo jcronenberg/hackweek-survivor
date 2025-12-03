@@ -4,8 +4,12 @@ extends Weapon
 const SOUND = preload("uid://cbtiibwrufqkq")
 const RAM_STICK = preload("uid://4ldc5brsy4ed")
 
-var fire_amount: int = 3
-var spread: float = deg_to_rad(15)
+var fire_amount: int = 3:
+	set(value):
+		if spread * value <= 360:
+			fire_amount = value
+			print(fire_amount)
+var spread: float = 15 # In degrees
 var audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 func _ready() -> void:
@@ -27,7 +31,7 @@ func fire() -> void:
 	var cur_angle: float = -spread * ((fire_amount - 1) / 2.0)
 
 	for _i in fire_amount:
-		_shoot_ram_at(direction.rotated(cur_angle))
+		_shoot_ram_at(direction.rotated(deg_to_rad(cur_angle)))
 		cur_angle += spread
 
 	audio_player.play()

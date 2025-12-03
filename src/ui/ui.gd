@@ -1,9 +1,12 @@
 class_name Ui
 extends Control
 
+const MENU = preload("uid://cpofklbo6xjew")
+
 var time_elapsed: float = 0.0
 var minutes: int
 var seconds: int
+var paused: bool = false
 
 func _physics_process(delta: float) -> void:
 	time_elapsed += delta
@@ -14,3 +17,16 @@ func _physics_process(delta: float) -> void:
 
 func set_game_over(state: bool) -> void:
 	%GameOverLabel.visible = state
+	%Menu.visible = state
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		paused = not paused
+		%Menu.visible = paused
+		get_tree().paused = paused
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(MENU)

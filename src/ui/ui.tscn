@@ -1,43 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://in34g42h8glb"]
+[gd_scene load_steps=3 format=3 uid="uid://in34g42h8glb"]
 
 [ext_resource type="Script" uid="uid://5l6dsmlnce23" path="res://src/ui/ui.gd" id="1_731sn"]
+[ext_resource type="Theme" uid="uid://b4le2mv112gbc" path="res://assets/ui_theme.tres" id="1_jlntk"]
 
 [node name="Ui" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_jlntk")
 script = ExtResource("1_731sn")
 
-[node name="GameOverLabel" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Menu" type="CenterContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="GameOverLabel" type="Label" parent="Menu/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7806942, 4.548356e-06, 4.813075e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 106
 text = "Game over"
 
-[node name="TimerLabel" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 20
+[node name="MenuButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return to menu"
+
+[connection signal="pressed" from="Menu/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

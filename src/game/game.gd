@@ -9,6 +9,8 @@ var spawn_amount: int = 1
 var increase_spawn_amount: float = 60.0
 var increase_spawn_amount_time: float = 0.0
 
+@onready var spawn_rect: Rect2 = %SpawnAreaShape.shape.get_rect()
+
 
 func _physics_process(delta: float) -> void:
 	spawn_delta_time += delta
@@ -32,19 +34,20 @@ func _physics_process(delta: float) -> void:
 ## sides.
 func _spawn_enemy() -> void:
 	var rect: Vector2 = get_viewport_rect().size * 1.2
-	var rand: int = randi_range(0, 2 * int(rect.x) + 2 * int(rect.y))
 	var pos: Vector2
-	if rand <= rect.x:
-		pos = Vector2(rand, 0)
-	elif rand <= rect.x + rect.y:
-		pos = Vector2(rect.x, rand - rect.x)
-	elif rand <= 2 * rect.x + rect.y:
-		pos = Vector2(rand - rect.x - rect.y, rect.y)
-	else:
-		pos = Vector2(0, rand - (2 * rect.x + rect.y))
+	while not pos or not spawn_rect.has_point(pos):
+		var rand: int = randi_range(0, 2 * int(rect.x) + 2 * int(rect.y))
+		if rand <= rect.x:
+			pos = Vector2(rand, 0)
+		elif rand <= rect.x + rect.y:
+			pos = Vector2(rect.x, rand - rect.x)
+		elif rand <= 2 * rect.x + rect.y:
+			pos = Vector2(rand - rect.x - rect.y, rect.y)
+		else:
+			pos = Vector2(0, rand - (2 * rect.x + rect.y))
 
-	pos -= rect / 2
-	pos += Global.get_player().position
+		pos -= rect / 2
+		pos += Global.get_player().position
 
 	var enemy: Enemy
 	if randi() % 20 == 19:

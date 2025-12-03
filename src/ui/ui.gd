@@ -18,12 +18,15 @@ func _physics_process(delta: float) -> void:
 func set_game_over(state: bool) -> void:
 	%GameOverLabel.visible = state
 	%Menu.visible = state
+	if state:
+		%MenuButton.grab_focus()
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		paused = not paused
 		%Menu.visible = paused
+		%MenuButton.grab_focus()
 		get_tree().paused = paused
 
 

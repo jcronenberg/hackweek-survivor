@@ -3,6 +3,10 @@ extends Control
 const GAME = preload("uid://dgo4jknqxinhf")
 
 
+func _ready() -> void:
+	%PlayButton.grab_focus()
+
+
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(GAME)
 

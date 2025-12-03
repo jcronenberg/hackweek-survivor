@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctow5dh60gvg4"]
 
 [ext_resource type="Script" uid="uid://c3yehy4r7k132" path="res://src/player/player.gd" id="1_gmfve"]
-[ext_resource type="Texture2D" uid="uid://cragpynj53krg" path="res://assets/hw_geeko_pixel.png" id="2_gmfve"]
+[ext_resource type="Texture2D" uid="uid://cql8n5gppr5gy" path="res://assets/hw_geeko_pixel.png" id="2_rxibo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lowyb"]
-radius = 21.0
+radius = 23.0
 height = 96.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmfve"]
@@ -35,12 +35,12 @@ motion_mode = 1
 script = ExtResource("1_gmfve")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(6.4000025, -82.399994)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("2_gmfve")
+texture_repeat = 2
+position = Vector2(-1, -64)
+texture = ExtResource("2_rxibo")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5999985, -18.149994)
+position = Vector2(-2, -23)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_lowyb")
 
@@ -60,7 +60,7 @@ show_percentage = false
 position = Vector2(23.400002, -0.1499939)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(-25, -17)
+position = Vector2(-24.400002, -22.850006)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_gmfve")
 debug_color = Color(0.83102524, 0.33544555, 0.5368337, 0.41960785)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj3pq08do280r"
-path="res://.godot/imported/Dirt_14-128x128.png-57254c433bb86f20305922ea57c2d07b.ctex"
+uid="uid://j4lcd852iuf8"
+path="res://.godot/imported/Space_station_base.png-d9a7640fa6f7cdfeeb227ad5a5efa499.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Dirt_14-128x128.png"
-dest_files=["res://.godot/imported/Dirt_14-128x128.png-57254c433bb86f20305922ea57c2d07b.ctex"]
+source_file="res://assets/sprites/Space_station_base.png"
+dest_files=["res://.godot/imported/Space_station_base.png-d9a7640fa6f7cdfeeb227ad5a5efa499.ctex"]
 
 [params]
 

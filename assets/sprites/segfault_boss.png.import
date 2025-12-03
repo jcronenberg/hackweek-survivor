@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rwmsrh7wwgpp"
-path="res://.godot/imported/enemy_eacces.png-170545a45411dabd630af5898c13fa61.ctex"
+uid="uid://bag8mhmmtb286"
+path="res://.godot/imported/segfault_boss.png-a6aae3095e35591c984829de3a4f96a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_eacces.png"
-dest_files=["res://.godot/imported/enemy_eacces.png-170545a45411dabd630af5898c13fa61.ctex"]
+source_file="res://assets/sprites/segfault_boss.png"
+dest_files=["res://.godot/imported/segfault_boss.png-a6aae3095e35591c984829de3a4f96a4.ctex"]
 
 [params]
 

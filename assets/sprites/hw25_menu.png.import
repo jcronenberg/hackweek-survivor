@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlumu68jnlia7"
-path="res://.godot/imported/hack-week-25_logo_geeko_dunkel.png-8f6092be74663c528696dd26f1aabb12.ctex"
+uid="uid://smadr0ts37js"
+path="res://.godot/imported/hw25_menu.png-b7d896ece3c01a79453864d1f9e02ad9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hack-week-25_logo_geeko_dunkel.png"
-dest_files=["res://.godot/imported/hack-week-25_logo_geeko_dunkel.png-8f6092be74663c528696dd26f1aabb12.ctex"]
+source_file="res://assets/sprites/hw25_menu.png"
+dest_files=["res://.godot/imported/hw25_menu.png-b7d896ece3c01a79453864d1f9e02ad9.ctex"]
 
 [params]
 

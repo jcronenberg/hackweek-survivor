@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2tvu0e8fk28v"
-path="res://.godot/imported/floor.png-38406586736af2fe805d7b886727ee47.ctex"
+uid="uid://cnk1sh4jbxs"
+path="res://.godot/imported/ram_stick.png-78b95d0b83d41a498689828a1d5fbead.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/floor.png"
-dest_files=["res://.godot/imported/floor.png-38406586736af2fe805d7b886727ee47.ctex"]
+source_file="res://assets/sprites/ram_stick.png"
+dest_files=["res://.godot/imported/ram_stick.png-78b95d0b83d41a498689828a1d5fbead.ctex"]
 
 [params]
 

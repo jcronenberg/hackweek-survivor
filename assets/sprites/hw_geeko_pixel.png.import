@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cql8n5gppr5gy"
-path="res://.godot/imported/hw_geeko_pixel.png-3ecf9719777e5198a687293726a60e9b.ctex"
+path="res://.godot/imported/hw_geeko_pixel.png-3ad31f4c6dcc90246c565a99188e0d15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hw_geeko_pixel.png"
-dest_files=["res://.godot/imported/hw_geeko_pixel.png-3ecf9719777e5198a687293726a60e9b.ctex"]
+source_file="res://assets/sprites/hw_geeko_pixel.png"
+dest_files=["res://.godot/imported/hw_geeko_pixel.png-3ad31f4c6dcc90246c565a99188e0d15.ctex"]
 
 [params]
 

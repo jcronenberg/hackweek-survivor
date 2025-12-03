@@ -1,9 +1,17 @@
 class_name WeaponRam
 extends Weapon
 
+const SOUND = preload("uid://cbtiibwrufqkq")
 const RAM_STICK = preload("uid://4ldc5brsy4ed")
+
 var fire_amount: int = 3
 var spread: float = deg_to_rad(15)
+var audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
+
+func _ready() -> void:
+	audio_player.stream = SOUND
+	add_child(audio_player)
+
 
 func fire() -> void:
 	var target: Enemy = find_nearest_enemy()
@@ -21,6 +29,8 @@ func fire() -> void:
 	for _i in fire_amount:
 		_shoot_ram_at(direction.rotated(cur_angle))
 		cur_angle += spread
+
+	audio_player.play()
 
 
 func _shoot_ram_at(direction: Vector2) -> void:

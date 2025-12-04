@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 
 
 func set_game_over() -> void:
+	_clear_menu_container()
 	var game_over_screen = GAME_OVER_SCREEN.instantiate()
 	%Menu.visible = true
 	%MenuContainer.add_child(game_over_screen)
@@ -43,6 +44,8 @@ func toggle_pause_menu() -> void:
 
 	if paused:
 		_add_pause_menu()
+	else:
+		_clear_menu_container()
 
 
 func _clear_menu_container() -> void:

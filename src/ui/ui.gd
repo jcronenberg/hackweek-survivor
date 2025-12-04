@@ -1,7 +1,8 @@
 class_name Ui
 extends Control
 
-const MENU = preload("uid://cpofklbo6xjew")
+const GAME_OVER_SCREEN = preload("uid://dtoedoqiavd80")
+const PAUSE_MENU = preload("uid://c3o5b2h8xwx15")
 
 var time_elapsed: float = 0.0
 var minutes: int
@@ -15,11 +16,10 @@ func _physics_process(delta: float) -> void:
 	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
 
 
-func set_game_over(state: bool) -> void:
-	%GameOverLabel.visible = state
-	%Menu.visible = state
-	if state:
-		%MenuButton.grab_focus()
+func set_game_over() -> void:
+	var game_over_screen = GAME_OVER_SCREEN.instantiate()
+	%Menu.visible = true
+	%MenuContainer.add_child(game_over_screen)
 
 
 func set_kill_count(amount: int) -> void:
@@ -28,12 +28,20 @@ func set_kill_count(amount: int) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		paused = not paused
-		%Menu.visible = paused
-		%MenuButton.grab_focus()
-		get_tree().paused = paused
+		toggle_pause_menu()
 
 
-func _on_menu_button_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_packed(MENU)
+func toggle_pause_menu() -> void:
+	paused = not paused
+	%Menu.visible = paused
+	get_tree().paused = paused
+
+	if paused:
+		_clear_menu_container()
+		var pause_menu = PAUSE_MENU.instantiate()
+		%MenuContainer.add_child(pause_menu)
+
+
+func _clear_menu_container() -> void:
+	for child in %MenuContainer.get_children():
+		child.queue_free()

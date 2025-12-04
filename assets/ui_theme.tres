@@ -54,3 +54,4 @@ Button/styles/focus = SubResource("StyleBoxFlat_sblgy")
 Button/styles/hover = SubResource("StyleBoxFlat_sblgy")
 Button/styles/normal = SubResource("StyleBoxFlat_56xr1")
 Button/styles/pressed = SubResource("StyleBoxFlat_yvra3")
+VBoxContainer/constants/separation = 24

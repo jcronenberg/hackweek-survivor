@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtoedoqiavd80"]
+
+[ext_resource type="Script" uid="uid://collgs5fc5fbe" path="res://src/ui/game_over_screen.gd" id="1_wmw1d"]
+
+[node name="GameOverScreen" type="VBoxContainer"]
+script = ExtResource("1_wmw1d")
+
+[node name="GameOverLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7806942, 4.548356e-06, 4.813075e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 106
+text = "Game over"
+
+[node name="MenuButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return to menu"
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

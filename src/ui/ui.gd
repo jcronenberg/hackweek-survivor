@@ -65,6 +65,7 @@ func show_upgrade() -> void:
 	%MenuContainer.add_child(upgrade_menu)
 
 	%Menu.visible = true
+	%Fireworks.visible = true
 	get_tree().paused = true
 
 
@@ -76,6 +77,7 @@ func _clear_menu_container() -> void:
 func _hide_menu() -> void:
 	state = UI_STATES.RUNNING
 	%Menu.visible = false
+	%Fireworks.visible = false
 	get_tree().paused = false
 	_clear_menu_container()
 

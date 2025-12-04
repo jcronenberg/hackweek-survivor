@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgyxcg3df8dle"]
+
+[sub_resource type="Curve" id="Curve_ce2u8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9673914, 0.26966298), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="FireworkParticle" type="CPUParticles2D"]
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_ce2u8")

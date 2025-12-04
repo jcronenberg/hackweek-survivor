@@ -38,8 +38,7 @@ func toggle_pause_menu() -> void:
 
 	if paused:
 		_clear_menu_container()
-		var pause_menu = PAUSE_MENU.instantiate()
-		%MenuContainer.add_child(pause_menu)
+		%MenuContainer.add_child(PAUSE_MENU.instantiate())
 
 
 func _clear_menu_container() -> void:

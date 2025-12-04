@@ -1,13 +1,12 @@
 extends Control
 
+const START_MENU = preload("uid://cg0rfyt64xmi5")
+
 
 func _ready() -> void:
-	%PlayButton.grab_focus()
+	%MenuContainer.add_child(START_MENU.instantiate())
 
 
-func _on_play_button_pressed() -> void:
-	Global.start_game()
-
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+func _clear_menu_container() -> void:
+	for child in %MenuContainer.get_children():
+		child.queue_free()

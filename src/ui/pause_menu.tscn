@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3o5b2h8xwx15"]
+[gd_scene load_steps=3 format=3 uid="uid://c3o5b2h8xwx15"]
 
 [ext_resource type="Script" uid="uid://bdck710ru2ftj" path="res://src/ui/pause_menu.gd" id="1_yqfnv"]
+[ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="2_mmpqy"]
 
 [node name="PauseMenu" type="VBoxContainer"]
 script = ExtResource("1_yqfnv")
@@ -9,14 +10,20 @@ script = ExtResource("1_yqfnv")
 unique_name_in_owner = true
 layout_mode = 2
 text = "Return to game"
+script = ExtResource("2_mmpqy")
+metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 2
 text = "Settings"
+script = ExtResource("2_mmpqy")
+metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
 [node name="ReturnMenuButton" type="Button" parent="."]
 layout_mode = 2
 text = "Return to menu"
+script = ExtResource("2_mmpqy")
+metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
 [connection signal="pressed" from="ReturnGameButton" to="." method="_on_return_game_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -4,11 +4,14 @@ extends Control
 const GAME_OVER_SCREEN = preload("uid://dtoedoqiavd80")
 const PAUSE_MENU = preload("uid://c3o5b2h8xwx15")
 const SETTINGS_MENU = preload("uid://cv2uajd0ywiqa")
+const UPGRADE_MENU = preload("uid://dkuwh37hxwif3")
+
+enum UI_STATES {RUNNING, PAUSED, UPGRADING}
 
 var time_elapsed: float = 0.0
 var minutes: int
 var seconds: int
-var paused: bool = false
+var state: UI_STATES = UI_STATES.RUNNING
 
 func _physics_process(delta: float) -> void:
 	time_elapsed += delta
@@ -38,19 +41,44 @@ func _input(event: InputEvent) -> void:
 
 
 func toggle_pause_menu() -> void:
-	paused = not paused
-	%Menu.visible = paused
-	get_tree().paused = paused
+	if state == UI_STATES.RUNNING:
+		state = UI_STATES.PAUSED
+	elif state == UI_STATES.PAUSED:
+		state = UI_STATES.RUNNING
+	else:
+		return
 
-	if paused:
+	if state == UI_STATES.PAUSED:
+		%Menu.visible = true
+		get_tree().paused = true
 		_add_pause_menu()
 	else:
-		_clear_menu_container()
+		_hide_menu()
+
+
+func show_upgrade() -> void:
+	state = UI_STATES.UPGRADING
+	_clear_menu_container()
+
+	var upgrade_menu = UPGRADE_MENU.instantiate()
+	upgrade_menu.item_selected.connect(_hide_menu)
+	%MenuContainer.add_child(upgrade_menu)
+
+	%Menu.visible = true
+	get_tree().paused = true
 
 
 func _clear_menu_container() -> void:
 	for child in %MenuContainer.get_children():
 		child.queue_free()
+
+
+func _hide_menu() -> void:
+	state = UI_STATES.RUNNING
+	%Menu.visible = false
+	get_tree().paused = false
+	_clear_menu_container()
+
 
 
 func _add_pause_menu() -> void:

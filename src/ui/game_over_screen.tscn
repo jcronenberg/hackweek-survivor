@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtoedoqiavd80"]
+[gd_scene load_steps=3 format=3 uid="uid://dtoedoqiavd80"]
 
 [ext_resource type="Script" uid="uid://collgs5fc5fbe" path="res://src/ui/game_over_screen.gd" id="1_wmw1d"]
+[ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="2_bdo0u"]
 
 [node name="GameOverScreen" type="VBoxContainer"]
 script = ExtResource("1_wmw1d")
@@ -19,5 +20,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Return to menu"
+script = ExtResource("2_bdo0u")
+metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

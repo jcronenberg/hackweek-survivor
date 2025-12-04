@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv2uajd0ywiqa"]
+[gd_scene load_steps=3 format=3 uid="uid://cv2uajd0ywiqa"]
 
 [ext_resource type="Script" uid="uid://wo2thgifcbph" path="res://src/menu/settings_menu.gd" id="1_fvwh4"]
+[ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="2_6g5bj"]
 
 [node name="SettingsMenu" type="VBoxContainer"]
 script = ExtResource("1_fvwh4")
@@ -22,6 +23,8 @@ size_flags_vertical = 4
 [node name="ReturnButton" type="Button" parent="."]
 layout_mode = 2
 text = "Return"
+script = ExtResource("2_6g5bj")
+metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
 [connection signal="value_changed" from="VolumeHBox/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

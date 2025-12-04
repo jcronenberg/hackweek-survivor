@@ -4,6 +4,13 @@ extends Node2D
 @export var fire_rate: float = 1
 
 var fire_rate_delta_time: float = 0.0
+var level: int = 1:
+	set(value):
+		if value > max_level:
+			return
+		level = value
+		_on_level_up()
+var max_level: int = 1
 
 
 func _physics_process(delta: float) -> void:
@@ -28,3 +35,7 @@ func find_nearest_enemy() -> Enemy:
 			nearest = enemy
 
 	return nearest
+
+
+func _on_level_up() -> void:
+	pass

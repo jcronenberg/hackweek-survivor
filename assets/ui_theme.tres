@@ -1,6 +1,22 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b4le2mv112gbc"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b4le2mv112gbc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sblgy"]
+bg_color = Color(0.7882353, 0.7882353, 0.7882353, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8007289, 0.8007291, 7.70092e-07, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1jjh"]
 bg_color = Color(0.7882353, 0.7882353, 0.7882353, 0.43529412)
 border_width_left = 4
 border_width_top = 4
@@ -11,9 +27,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_left = 12.0
+expand_margin_left = 4.0
 expand_margin_top = 4.0
-expand_margin_right = 12.0
+expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56xr1"]
@@ -27,9 +43,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_left = 12.0
+expand_margin_left = 4.0
 expand_margin_top = 4.0
-expand_margin_right = 12.0
+expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvra3"]
@@ -43,17 +59,18 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_left = 12.0
+expand_margin_left = 4.0
 expand_margin_top = 4.0
-expand_margin_right = 12.0
+expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
 [resource]
 Button/colors/font_pressed_color = Color(8.731843e-06, 8.731842e-06, 8.731842e-06, 1)
 Button/font_sizes/font_size = 24
 Button/styles/focus = SubResource("StyleBoxFlat_sblgy")
-Button/styles/hover = SubResource("StyleBoxFlat_sblgy")
+Button/styles/hover = SubResource("StyleBoxFlat_q1jjh")
 Button/styles/normal = SubResource("StyleBoxFlat_56xr1")
 Button/styles/pressed = SubResource("StyleBoxFlat_yvra3")
 Label/font_sizes/font_size = 24
+RichTextLabel/font_sizes/italics_font_size = 10
 VBoxContainer/constants/separation = 24

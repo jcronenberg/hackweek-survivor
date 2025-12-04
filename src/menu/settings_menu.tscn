@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv2uajd0ywiqa"]
+
+[ext_resource type="Script" uid="uid://wo2thgifcbph" path="res://src/menu/settings_menu.gd" id="1_fvwh4"]
+
+[node name="SettingsMenu" type="VBoxContainer"]
+script = ExtResource("1_fvwh4")
+
+[node name="VolumeHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="VolumeLabel" type="Label" parent="VolumeHBox"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="VolumeHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 2
+text = "Return"
+
+[connection signal="value_changed" from="VolumeHBox/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

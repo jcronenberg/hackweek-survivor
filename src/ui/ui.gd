@@ -3,6 +3,7 @@ extends Control
 
 const GAME_OVER_SCREEN = preload("uid://dtoedoqiavd80")
 const PAUSE_MENU = preload("uid://c3o5b2h8xwx15")
+const SETTINGS_MENU = preload("uid://cv2uajd0ywiqa")
 
 var time_elapsed: float = 0.0
 var minutes: int
@@ -37,10 +38,23 @@ func toggle_pause_menu() -> void:
 	get_tree().paused = paused
 
 	if paused:
-		_clear_menu_container()
-		%MenuContainer.add_child(PAUSE_MENU.instantiate())
+		_add_pause_menu()
 
 
 func _clear_menu_container() -> void:
 	for child in %MenuContainer.get_children():
 		child.queue_free()
+
+
+func _add_pause_menu() -> void:
+	_clear_menu_container()
+	var pause_menu = PAUSE_MENU.instantiate()
+	pause_menu.connect("settings_requested", _add_settings_menu)
+	%MenuContainer.add_child(pause_menu)
+
+
+func _add_settings_menu() -> void:
+	_clear_menu_container()
+	var settings_menu = SETTINGS_MENU.instantiate()
+	settings_menu.connect("return_requested", _add_pause_menu)
+	%MenuContainer.add_child(settings_menu)

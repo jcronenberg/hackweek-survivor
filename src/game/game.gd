@@ -3,10 +3,10 @@ extends Node2D
 const ENEMY_GODOT = preload("uid://dcai8d26135ma")
 const ENEMY_BOSS_SEGFAULT = preload("uid://cnfw626eys7b")
 
-@export var spawn_rate: float = 0.5
+@export var spawn_rate: float = 2.0
 var spawn_delta_time: float = 1.0
-var spawn_amount: int = 1
-var increase_spawn_amount: float = 60.0
+var spawn_amount: int = 2
+var increase_spawn_amount: float = 50.0
 var increase_spawn_amount_time: float = 0.0
 
 @onready var spawn_rect: Rect2 = %SpawnAreaShape.shape.get_rect()

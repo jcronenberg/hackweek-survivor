@@ -8,11 +8,11 @@ extends CharacterBody2D
 	set(value):
 		xp = value
 		Global.get_ui().set_xp_amount(value)
-		if value % level_up_cost + 1 == level_up_cost and \
+		if value >= next_level and \
 			weapon.level < weapon.max_level:
-			level_up_cost = int(1.2 * level_up_cost)
+			next_level += int(1.1 * next_level)
 			Global.get_ui().show_upgrade()
-var level_up_cost: int = 50
+var next_level: int = 20
 const damage_tick_time = 0.3
 
 var collided_enemies: Array[Enemy] = []

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp8nuesiu80is"]
+[gd_scene load_steps=5 format=3 uid="uid://bp8nuesiu80is"]
 
 [ext_resource type="Texture2D" uid="uid://btna6qgd4d7cj" path="res://assets/sprites/light_bulb.png" id="1_j84vx"]
 [ext_resource type="Script" uid="uid://8i3u1hxxsnie" path="res://src/neutral/xp_pickup.gd" id="1_tionf"]
+[ext_resource type="AudioStream" uid="uid://netordyeuf06" path="res://assets/sounds/plop.tres" id="3_gh7ep"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5cv3o"]
 radius = 16.03122
@@ -15,3 +16,8 @@ texture = ExtResource("1_j84vx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5cv3o")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_gh7ep")
+volume_db = -10.0

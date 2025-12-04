@@ -12,9 +12,6 @@ var kill_count: int = 0:
 		if ui:
 			ui.set_kill_count(value)
 
-		if value % 51 == 50:
-			get_player().weapon.fire_amount += 1
-
 
 func _ready() -> void:
 	game_over.connect(_on_game_over_emitted)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctow5dh60gvg4"]
+[gd_scene load_steps=8 format=3 uid="uid://ctow5dh60gvg4"]
 
 [ext_resource type="Script" uid="uid://c3yehy4r7k132" path="res://src/player/player.gd" id="1_gmfve"]
 [ext_resource type="Texture2D" uid="uid://cql8n5gppr5gy" path="res://assets/sprites/hw_geeko_pixel.png" id="2_rxibo"]
@@ -29,6 +29,9 @@ corner_radius_bottom_left = 2
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmfve"]
 radius = 32.0
 height = 116.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxibo"]
+radius = 103.01942
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -65,5 +68,12 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_gmfve")
 debug_color = Color(0.83102524, 0.33544555, 0.5368337, 0.41960785)
 
+[node name="PickupArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(-1, -23)
+shape = SubResource("CircleShape2D_rxibo")
+
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
+[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]

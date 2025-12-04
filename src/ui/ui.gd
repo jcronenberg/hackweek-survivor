@@ -27,6 +27,10 @@ func set_kill_count(amount: int) -> void:
 	%KillCountLabel.text = "Kills: %s" % amount
 
 
+func set_xp_amount(amount: int) -> void:
+	%XpLabel.text = "XP: %s" % amount
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pause_menu()

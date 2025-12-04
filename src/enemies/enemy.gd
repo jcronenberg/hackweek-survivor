@@ -5,6 +5,11 @@ extends CharacterBody2D
 @export var damage: int = 3
 @export var health: int = 20
 @export var weight: int = 20
+@export var xp_amount: int = 1
+
+signal spawn_pickup(pickup: Pickup)
+
+const XP_PICKUP = preload("uid://bp8nuesiu80is")
 
 
 func _ready() -> void:
@@ -46,5 +51,13 @@ func _die() -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:v", 1, 0.1).from(10)
 	tween.tween_property(self, "scale", Vector2(), 0.1)
+	tween.tween_callback(_spawn_xp)
 	tween.tween_callback(queue_free)
 	Global.kill_count += 1
+
+
+func _spawn_xp() -> void:
+	var xp_pickup = XP_PICKUP.instantiate()
+	xp_pickup.xp_amount = xp_amount
+	xp_pickup.global_position = global_position
+	spawn_pickup.emit(xp_pickup)

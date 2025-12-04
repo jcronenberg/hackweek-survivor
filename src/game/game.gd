@@ -30,6 +30,10 @@ func _physics_process(delta: float) -> void:
 		increase_spawn_amount_time = 0.0
 
 
+func add_pickup(pickup: Pickup) -> void:
+	%Pickups.add_child(pickup)
+
+
 ## This spawning algorithm basically picks a random point a line which is the
 ## length of a unwrapped perimeter of a rectangle (which is a rectangle that is
 ## a bit larger than the viewport so enemies spawn outside of view). Then it
@@ -59,5 +63,7 @@ func _spawn_enemy() -> void:
 		enemy = ENEMY_BOSS_SEGFAULT.instantiate()
 	else:
 		enemy = ENEMY_GODOT.instantiate()
+
 	enemy.position = pos
-	add_child(enemy)
+	enemy.spawn_pickup.connect(add_pickup)
+	%Enemies.add_child(enemy)

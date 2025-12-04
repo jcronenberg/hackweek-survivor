@@ -6,3 +6,4 @@ func _ready() -> void:
 
 	health = 100
 	weight = 100
+	xp_amount = 5

@@ -4,6 +4,12 @@ extends CharacterBody2D
 @export var speed: int = 400
 @export var max_health: int = 100
 @export var health: int = 100
+@export var xp: int = 0:
+	set(value):
+		xp = value
+		Global.get_ui().set_xp_amount(value)
+		if value % 51 == 50:
+			weapon.fire_amount += 1
 const damage_tick_time = 0.3
 
 var collided_enemies: Array[Enemy] = []
@@ -84,3 +90,10 @@ func _on_damage_area_body_exited(body: Node2D) -> void:
 	if not body is Enemy:
 		return
 	collided_enemies.erase(body)
+
+
+func _on_pickup_area_area_entered(area: Area2D) -> void:
+	if area is Pickup:
+		if area is XpPickup:
+			xp += area.xp_amount
+		area.pick_up(global_position)

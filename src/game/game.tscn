@@ -2006,3 +2006,9 @@ tile_set = SubResource("TileSet_jhw8o")
 unique_name_in_owner = true
 position = Vector2(63, 62.5)
 shape = SubResource("RectangleShape2D_xptat")
+
+[node name="Enemies" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Pickups" type="Node2D" parent="."]
+unique_name_in_owner = true

@@ -30,6 +30,11 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+pickups="Everything that can be picked up by the player"
+enemies="All enemies"
+
 [input]
 
 ui_left={

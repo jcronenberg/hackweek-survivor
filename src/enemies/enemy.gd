@@ -14,6 +14,7 @@ const XP_PICKUP = preload("uid://bp8nuesiu80is")
 
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+	y_sort_enabled = true
 
 	add_to_group("enemies")
 

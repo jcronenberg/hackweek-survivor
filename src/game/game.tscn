@@ -1976,10 +1976,6 @@ script = ExtResource("1_bs6l1")
 [node name="Ui" parent="CanvasLayer" instance=ExtResource("4_kc8ui")]
 unique_name_in_owner = true
 
-[node name="Player" parent="." instance=ExtResource("1_7uq6d")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
 [node name="Map" type="Node2D" parent="."]
 
 [node name="TileMapSpace" type="TileMapLayer" parent="Map"]
@@ -2006,6 +2002,11 @@ tile_set = SubResource("TileSet_jhw8o")
 unique_name_in_owner = true
 position = Vector2(63, 62.5)
 shape = SubResource("RectangleShape2D_xptat")
+
+[node name="Player" parent="." instance=ExtResource("1_7uq6d")]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Pickups" type="Node2D" parent="."]
 unique_name_in_owner = true

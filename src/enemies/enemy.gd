@@ -11,6 +11,8 @@ signal spawn_pickup(pickup: Pickup)
 
 const XP_PICKUP = preload("uid://bp8nuesiu80is")
 
+var _dead: bool = false
+
 
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
@@ -47,6 +49,10 @@ func get_damage_dealt(amount: int) -> void:
 
 
 func _die() -> void:
+	if _dead:
+		return
+
+	_dead = true
 	set_process(false)
 	set_physics_process(false)
 	var tween: Tween = get_tree().create_tween()

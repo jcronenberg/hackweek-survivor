@@ -11,6 +11,8 @@ var increase_spawn_amount_time: float = 0.0
 
 @onready var spawn_rect: Rect2 = %SpawnAreaShape.shape.get_rect()
 
+var _spawn_points: Array[Vector2] = []
+
 
 func _ready() -> void:
 	Global.ui = %Ui
@@ -21,8 +23,10 @@ func _physics_process(delta: float) -> void:
 	spawn_delta_time += delta
 	if spawn_delta_time >= spawn_rate:
 		for _i in spawn_amount:
-			_spawn_enemy()
+			_generate_spawn_point()
+
 		spawn_delta_time = 0.0
+		_spawn_enemies()
 
 	increase_spawn_amount_time += delta
 	if increase_spawn_amount_time >= increase_spawn_amount:
@@ -41,10 +45,10 @@ func add_pickup(pickup: Pickup) -> void:
 ## finally this is mapped to the players position. In the end enemies should
 ## spawn out of view, but close to the player with equal distribution on all
 ## sides.
-func _spawn_enemy() -> void:
+func _generate_spawn_point() -> void:
 	var rect: Vector2 = get_viewport_rect().size * 1.2
 	var pos: Vector2
-	while not pos or not spawn_rect.has_point(pos):
+	while not pos or not spawn_rect.has_point(pos) or _point_is_near_other_spawn(pos):
 		var rand: int = randi_range(0, 2 * int(rect.x) + 2 * int(rect.y))
 		if rand <= rect.x:
 			pos = Vector2(rand, 0)
@@ -58,12 +62,27 @@ func _spawn_enemy() -> void:
 		pos -= rect / 2
 		pos += Global.get_player().position
 
-	var enemy: Enemy
-	if randi() % 20 == 19:
-		enemy = ENEMY_BOSS_SEGFAULT.instantiate()
-	else:
-		enemy = ENEMY_GODOT.instantiate()
+	_spawn_points.append(pos)
 
-	enemy.position = pos
-	enemy.spawn_pickup.connect(add_pickup)
-	%Enemies.add_child(enemy)
+
+func _point_is_near_other_spawn(point: Vector2) -> bool:
+	for pos in _spawn_points:
+		if point.distance_to(pos) <= 50:
+			return true
+	return false
+
+
+
+func _spawn_enemies() -> void:
+	for pos in _spawn_points:
+		var enemy: Enemy
+		if randi() % 20 == 19:
+			enemy = ENEMY_BOSS_SEGFAULT.instantiate()
+		else:
+			enemy = ENEMY_GODOT.instantiate()
+
+		enemy.position = pos
+		enemy.spawn_pickup.connect(add_pickup)
+		%Enemies.add_child(enemy)
+
+	_spawn_points = []

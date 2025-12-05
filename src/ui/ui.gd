@@ -20,14 +20,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	time_elapsed += delta
-	minutes = int(time_elapsed / 60)
-	seconds = int(time_elapsed) % 60
-	%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
+	if state == UI_STATES.RUNNING:
+		time_elapsed += delta
+		minutes = int(time_elapsed / 60)
+		seconds = int(time_elapsed) % 60
+		%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
 
 
 func set_game_over() -> void:
 	_clear_menu_container()
+	state = UI_STATES.PAUSED
 	var game_over_screen = GAME_OVER_SCREEN.instantiate()
 	%Menu.visible = true
 	%MenuContainer.add_child(game_over_screen)

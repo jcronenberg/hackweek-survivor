@@ -13,6 +13,12 @@ var minutes: int
 var seconds: int
 var state: UI_STATES = UI_STATES.RUNNING
 
+
+func _ready() -> void:
+	if OS.has_feature("editor"):
+		%DebugMenu.visible = true
+
+
 func _physics_process(delta: float) -> void:
 	time_elapsed += delta
 	minutes = int(time_elapsed / 60)

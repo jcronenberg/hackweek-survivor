@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw1xd3uaw81l8"]
+
+[ext_resource type="Script" uid="uid://bxylfdtpoiqil" path="res://src/ui/debug_menu.gd" id="1_5g3s2"]
+
+[node name="DebugMenu" type="VBoxContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_5g3s2")
+
+[node name="LevelUpButton" type="Button" parent="."]
+layout_mode = 2
+text = "Level up"
+
+[connection signal="pressed" from="LevelUpButton" to="." method="_on_level_up_button_pressed"]

@@ -46,6 +46,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 24
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="LevelupSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_epq3q")
 autoplay = true

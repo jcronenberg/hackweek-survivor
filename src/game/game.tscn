@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgo4jknqxinhf"]
+[gd_scene load_steps=9 format=4 uid="uid://dgo4jknqxinhf"]
 
 [ext_resource type="PackedScene" uid="uid://ctow5dh60gvg4" path="res://src/player/player.tscn" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://b52at8u5bo2qk" path="res://src/game/game.gd" id="1_bs6l1"]
 [ext_resource type="PackedScene" uid="uid://in34g42h8glb" path="res://src/ui/ui.tscn" id="4_kc8ui"]
 [ext_resource type="Texture2D" uid="uid://j4lcd852iuf8" path="res://assets/sprites/Space_station_base.png" id="5_xptat"]
+[ext_resource type="AudioStream" uid="uid://do8ksady8iw6m" path="res://assets/sounds/ambiance.wav" id="5_yarin"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yarin"]
 texture = ExtResource("5_xptat")
@@ -2014,3 +2015,8 @@ unique_name_in_owner = true
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
 y_sort_enabled = true
+
+[node name="BackgroundHum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yarin")
+volume_db = -25.0
+autoplay = true

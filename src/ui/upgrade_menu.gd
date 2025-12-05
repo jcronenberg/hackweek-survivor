@@ -6,7 +6,7 @@ signal item_selected
 
 
 func _ready() -> void:
-	var upgrades: Array = Global.loot_table.get_possible_upgrades(2)
+	var upgrades: Array = Global.loot_table.get_possible_upgrades(3)
 	for upgrade in upgrades:
 		add_upgrade(upgrade)
 

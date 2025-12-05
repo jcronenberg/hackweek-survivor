@@ -1,19 +1,53 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0yrt5u4uw6ec"]
+[gd_scene load_steps=22 format=3 uid="uid://c0yrt5u4uw6ec"]
 
 [ext_resource type="Script" uid="uid://b0iguyggjvk2n" path="res://src/items/loot_table.gd" id="1_xfho3"]
 [ext_resource type="Script" uid="uid://dphjc5kvqupte" path="res://src/items/upgrade_item.gd" id="2_jq4si"]
 [ext_resource type="Script" uid="uid://156xo7hvo5o4" path="res://src/items/weapon_ram.gd" id="3_1hu6t"]
 [ext_resource type="Texture2D" uid="uid://b5o42j5v4lha2" path="res://assets/sprites/multithreading.png" id="3_jq4si"]
+[ext_resource type="Texture2D" uid="uid://7m1lcvyxrhqs" path="res://assets/sprites/capacitor.png" id="4_46kmj"]
+[ext_resource type="Texture2D" uid="uid://cu21rvixmws6g" path="res://assets/sprites/overclocking.png" id="5_q02wt"]
 [ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="5_umwwn"]
 [ext_resource type="Script" uid="uid://c6xhuun4ea266" path="res://src/items/weapon_upgrade.gd" id="6_46kmj"]
+[ext_resource type="Texture2D" uid="uid://ccomv5vvoueqp" path="res://assets/sprites/resolution_increase.png" id="6_ab5ld"]
 
 [sub_resource type="Resource" id="Resource_umwwn"]
 script = ExtResource("2_jq4si")
 icon = ExtResource("3_jq4si")
 item_name = "Multithreading"
 flavor_text = "Here it's [b]always[/b] good"
+description = "Projectiles +1"
 mod_projectiles = 1
 max_level = 3
+metadata/_custom_type_script = "uid://dphjc5kvqupte"
+
+[sub_resource type="Resource" id="Resource_ab5ld"]
+script = ExtResource("2_jq4si")
+icon = ExtResource("4_46kmj")
+item_name = "Power upgrade"
+flavor_text = "Unlimited power!"
+description = "Damage +10"
+mod_damage = 10
+max_level = 4
+metadata/_custom_type_script = "uid://dphjc5kvqupte"
+
+[sub_resource type="Resource" id="Resource_38mrp"]
+script = ExtResource("2_jq4si")
+icon = ExtResource("5_q02wt")
+item_name = "Overclocking"
+flavor_text = "Gotta go faster"
+description = "Increase fire rate by 10%"
+mod_fire_rate = 0.1
+max_level = 6
+metadata/_custom_type_script = "uid://dphjc5kvqupte"
+
+[sub_resource type="Resource" id="Resource_m41b2"]
+script = ExtResource("2_jq4si")
+icon = ExtResource("6_ab5ld")
+item_name = "Resolution upgrade"
+flavor_text = "Bigger is better"
+description = "Increase area by 20%"
+mod_area_multiplier = 0.2
+max_level = 4
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_f5mf7"]
@@ -47,7 +81,7 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_46kmj"]
 script = ExtResource("6_46kmj")
-description = "Increase projectile size by 25%"
+description = "Increase area by 25%"
 mod_area_multiplier = 0.25
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
@@ -66,7 +100,7 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 [node name="LootTable" type="Node" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_xfho3")
 weapons = [NodePath("WeaponRam")]
-upgrades = Array[ExtResource("2_jq4si")]([SubResource("Resource_umwwn")])
+upgrades = Array[ExtResource("2_jq4si")]([SubResource("Resource_umwwn"), SubResource("Resource_ab5ld"), SubResource("Resource_38mrp"), SubResource("Resource_m41b2")])
 metadata/_custom_type_script = "uid://b0iguyggjvk2n"
 
 [node name="WeaponRam" type="Node2D" parent="."]

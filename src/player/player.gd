@@ -25,7 +25,10 @@ var collided_enemies: Array[Enemy] = []
 var damage_delta_time: float = 0.0
 var damage_tween: Tween
 var weapon: Weapon = null
-var next_level: int = 20
+var next_level: int = 20:
+	set(value):
+		Global.get_ui().set_max_xp(value)
+		next_level = value
 
 
 func _ready() -> void:

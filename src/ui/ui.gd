@@ -15,6 +15,7 @@ var state: UI_STATES = UI_STATES.RUNNING
 
 
 func _ready() -> void:
+	set_max_xp(Global.get_player().level_requirement)
 	if OS.has_feature("editor"):
 		%DebugMenu.visible = true
 
@@ -40,7 +41,12 @@ func set_kill_count(amount: int) -> void:
 
 
 func set_xp_amount(amount: int) -> void:
-	%XpLabel.text = "XP: %s" % amount
+	%XpBar.value = amount
+
+
+func set_max_xp(value: int) -> void:
+	%XpBar.min_value = %XpBar.max_value
+	%XpBar.max_value = value
 
 
 func _input(event: InputEvent) -> void:

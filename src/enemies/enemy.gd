@@ -39,7 +39,7 @@ func move_to_player(_delta: float) -> void:
 
 func get_damage_dealt(amount: int) -> void:
 	health -= amount
-	if health == 0:
+	if health <= 0:
 		_die()
 	else:
 		var tween: Tween = get_tree().create_tween()

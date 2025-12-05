@@ -10,11 +10,11 @@ func _ready() -> void:
 
 
 func add_upgrade() -> void:
-	var item: Item = ITEM.instantiate()
-	item.pressed.connect(_apply_upgrade)
+	var item: UpgradeItemEntry = ITEM.instantiate()
+
+	# hardcoded for now
+	item.init(Global.get_player().weapon)
+
+	item.pressed.connect(item_selected.emit)
 	%ItemContainer.add_child(item)
 	item.grab_focus()
-
-func _apply_upgrade() -> void:
-	Global.get_player().weapon.level += 1
-	item_selected.emit()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqe8r8csc8jyw"]
+[gd_scene load_steps=6 format=3 uid="uid://dqe8r8csc8jyw"]
 
-[ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="1_g74gb"]
-[ext_resource type="Script" uid="uid://cb4665wwovl3l" path="res://src/ui/item.gd" id="1_yewdp"]
-[ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="3_4svth"]
+[ext_resource type="Script" uid="uid://cb4665wwovl3l" path="res://src/ui/upgrade_item_entry.gd" id="1_i0hmd"]
+[ext_resource type="Script" path="res://src/ui/hover_focus_button.gd" id="3_vek27"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yewdp"]
 bg_color = Color(1, 1, 1, 0.1882353)
@@ -16,7 +15,7 @@ corner_radius_bottom_left = 4
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4svth"]
 bg_color = Color(1, 1, 1, 0.7058824)
 
-[node name="Item" type="PanelContainer"]
+[node name="UpgradeItemEntry" type="PanelContainer"]
 custom_minimum_size = Vector2(400, 0)
 offset_right = 400.0
 offset_bottom = 118.0
@@ -24,14 +23,14 @@ focus_mode = 2
 focus_behavior_recursive = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_yewdp")
-script = ExtResource("1_yewdp")
+script = ExtResource("1_i0hmd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="WeaponIcon" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("1_g74gb")
 expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
@@ -47,6 +46,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Name" type="RichTextLabel" parent="HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
@@ -56,6 +56,7 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="FlavorText" type="RichTextLabel" parent="HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 text = "[i]Most expensive item[/i]"
@@ -68,6 +69,7 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="UpgradeText" type="RichTextLabel" parent="HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 text = "Projectile [b]+1[/b]"
@@ -81,8 +83,7 @@ layout_mode = 2
 focus_behavior_recursive = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_yewdp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4svth")
-script = ExtResource("3_4svth")
-metadata/_custom_type_script = "uid://udjuyj2etcbv"
+script = ExtResource("3_vek27")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

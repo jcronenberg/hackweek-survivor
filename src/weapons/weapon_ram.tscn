@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dp5rdb82xhi7m"]
+
+[ext_resource type="Script" uid="uid://156xo7hvo5o4" path="res://src/weapons/weapon_ram.gd" id="1_7q5vt"]
+[ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="2_f5mf7"]
+[ext_resource type="Script" uid="uid://c6xhuun4ea266" path="res://src/weapons/weapon_upgrade.gd" id="2_na080"]
+
+[sub_resource type="Resource" id="Resource_f5mf7"]
+script = ExtResource("2_na080")
+description = "Shoots at the nearest enemy"
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_85bgi"]
+script = ExtResource("2_na080")
+description = "Damage +10"
+mod_damage = 10
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_ohcxl"]
+script = ExtResource("2_na080")
+description = "Projectiles +1"
+mod_projectiles = 1
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_na080"]
+script = ExtResource("2_na080")
+description = "Increase fire rate by 20%"
+mod_fire_rate = 0.2
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_7q5vt"]
+script = ExtResource("2_na080")
+description = "Decrease weapon spread by 25%"
+mod_spread = -0.5
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[node name="WeaponRam" type="Node2D"]
+script = ExtResource("1_7q5vt")
+icon = ExtResource("2_f5mf7")
+weapon_name = "RAM"
+flavor_text = "Most expensive item"
+upgrades = Array[ExtResource("2_na080")]([SubResource("Resource_f5mf7"), SubResource("Resource_85bgi"), SubResource("Resource_ohcxl"), SubResource("Resource_na080"), SubResource("Resource_7q5vt"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl")])
+damage = 10
+projectile_speed = 800.0
+spread = 15.0
+push_power = 50
+metadata/_custom_type_script = "uid://156xo7hvo5o4"

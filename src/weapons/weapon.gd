@@ -1,16 +1,24 @@
 class_name Weapon
 extends Node2D
 
-@export var fire_rate: float = 1
+@export var icon: CompressedTexture2D
+@export var weapon_name: String
+@export var flavor_text: String
+@export var upgrades: Array[WeaponUpgrade] = []
+@export var fire_rate: float = 1.0
+@export var damage: int = 0
+@export var area_multiplier: float = 1.0
+@export var projectiles: int = 1
+@export var projectile_speed: float = 0.0
+## In degrees
+@export var spread: float = 0
+@export var push_power: int = 0
 
 var fire_rate_delta_time: float = 0.0
-var level: int = 1:
-	set(value):
-		if value > max_level:
-			return
-		level = value
-		_on_level_up()
-var max_level: int = 1
+var level: int = 0
+var max_level: int:
+	get():
+		return upgrades.size() - 1
 
 
 func _physics_process(delta: float) -> void:
@@ -35,6 +43,24 @@ func find_nearest_enemy() -> Enemy:
 			nearest = enemy
 
 	return nearest
+
+
+func level_up() -> void:
+	assert(level < max_level)
+	level += 1
+
+	var upgrade: WeaponUpgrade = upgrades[level]
+	fire_rate -= upgrade.mod_fire_rate * fire_rate
+	damage += upgrade.mod_damage
+	area_multiplier += upgrade.mod_area_multiplier
+	projectiles += upgrade.mod_projectiles
+	projectile_speed += upgrade.mod_projectile_speed
+	spread += upgrade.mod_spread * spread
+	push_power += upgrade.mod_push_power
+
+
+func get_next_upgrade() -> WeaponUpgrade:
+	return upgrades[level + 1] if level < max_level else null
 
 
 func _on_level_up() -> void:

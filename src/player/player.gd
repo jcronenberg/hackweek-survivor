@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 const DAMAGE_TICK_TIME = 0.3
+const WEAPON_RAM = preload("uid://dp5rdb82xhi7m")
 
 @export var speed: int = 400
 @export var max_health: int = 100
@@ -28,7 +29,7 @@ var next_level: int = 20
 
 
 func _ready() -> void:
-	weapon = WeaponRam.new()
+	weapon = WEAPON_RAM.instantiate()
 	add_child(weapon)
 
 

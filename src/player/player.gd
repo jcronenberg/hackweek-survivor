@@ -1,25 +1,30 @@
 class_name Player
 extends CharacterBody2D
 
+const DAMAGE_TICK_TIME = 0.3
+
 @export var speed: int = 400
 @export var max_health: int = 100
 @export var health: int = 100
+@export var level_requirement: int = 20
+@export var level_scaling: float = 1.2
 @export var xp: int = 0:
 	set(value):
 		xp = value
 		Global.get_ui().set_xp_amount(value)
 		if value >= next_level and \
 			weapon.level < weapon.max_level:
-			next_level += int(1.1 * next_level)
+			level_requirement = int(level_requirement * level_scaling)
+			next_level += level_requirement
 			Global.get_ui().show_upgrade()
-var next_level: int = 20
-const damage_tick_time = 0.3
+
+@onready var player_sprite: Sprite2D = $PlayerSprite
 
 var collided_enemies: Array[Enemy] = []
 var damage_delta_time: float = 0.0
 var damage_tween: Tween
-@onready var player_sprite: Sprite2D = $PlayerSprite
 var weapon: Weapon = null
+var next_level: int = 20
 
 
 func _ready() -> void:
@@ -63,7 +68,7 @@ func _calculate_damage(delta: float) -> void:
 			if health <= 0:
 				Global.game_over.emit()
 
-			damage_delta_time = damage_tick_time
+			damage_delta_time = DAMAGE_TICK_TIME
 	else:
 		damage_delta_time = 0.0
 

@@ -10,6 +10,7 @@ var audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
 func _ready() -> void:
 	max_level = 24
 	audio_player.stream = SOUND
+	audio_player.pitch_scale = 1.2
 	add_child(audio_player)
 
 

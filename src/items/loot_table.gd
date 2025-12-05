@@ -2,6 +2,8 @@ class_name LootTable
 extends Node
 
 @export var weapons: Array[Weapon]
+## Note that these need to be set as 'local_to_scene',
+## otherwise their state will persist across game restarts.
 @export var upgrades: Array[UpgradeItem]
 
 

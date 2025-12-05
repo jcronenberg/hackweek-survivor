@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ccomv5vvoueqp" path="res://assets/sprites/resolution_increase.png" id="6_ab5ld"]
 
 [sub_resource type="Resource" id="Resource_umwwn"]
+resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("3_jq4si")
 item_name = "Multithreading"
@@ -21,6 +22,7 @@ max_level = 3
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_ab5ld"]
+resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("4_46kmj")
 item_name = "Power upgrade"
@@ -31,6 +33,7 @@ max_level = 4
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_38mrp"]
+resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("5_q02wt")
 item_name = "Overclocking"
@@ -41,6 +44,7 @@ max_level = 6
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_m41b2"]
+resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("6_ab5ld")
 item_name = "Resolution upgrade"

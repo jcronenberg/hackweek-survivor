@@ -46,7 +46,7 @@ func add_pickup(pickup: Pickup) -> void:
 ## spawn out of view, but close to the player with equal distribution on all
 ## sides.
 func _generate_spawn_point() -> void:
-	var rect: Vector2 = get_viewport_rect().size * 1.2
+	var rect: Vector2 = get_viewport_rect().size * 1.4
 	var pos: Vector2
 	while not pos or not spawn_rect.has_point(pos) or _point_is_near_other_spawn(pos):
 		var rand: int = randi_range(0, 2 * int(rect.x) + 2 * int(rect.y))

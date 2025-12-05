@@ -16,4 +16,9 @@ script = ExtResource("1_5g3s2")
 layout_mode = 2
 text = "Level up"
 
+[node name="SpawnAmountButton" type="Button" parent="."]
+layout_mode = 2
+text = "Increase spawn amount"
+
 [connection signal="pressed" from="LevelUpButton" to="." method="_on_level_up_button_pressed"]
+[connection signal="pressed" from="SpawnAmountButton" to="." method="_on_spawn_amount_button_pressed"]

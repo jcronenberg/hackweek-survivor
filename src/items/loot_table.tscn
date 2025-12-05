@@ -38,8 +38,8 @@ script = ExtResource("2_jq4si")
 icon = ExtResource("5_q02wt")
 item_name = "Overclocking"
 flavor_text = "Gotta go faster"
-description = "Increase fire rate by 10%"
-mod_fire_rate = 0.1
+description = "Increase fire rate by 15%"
+mod_fire_rate = 0.15
 max_level = 6
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 

@@ -35,6 +35,7 @@ func fire() -> void:
 
 func _shoot_ram_at(direction: Vector2) -> void:
 	var projectile: RamStick = RAM_STICK.instantiate()
+	projectile.scale *= get_area_multiplier()
 	projectile.damage = get_damage()
 	projectile.speed = projectile_speed
 	projectile.push_power = push_power

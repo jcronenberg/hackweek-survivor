@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const DAMAGE_TICK_TIME = 0.3
 
-@export var speed: int = 400
+@export var speed: int = 300
 @export var max_health: int = 100
 @export var health: int = 100
 @export var level_requirement: int = 20

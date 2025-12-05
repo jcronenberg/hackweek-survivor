@@ -8,6 +8,7 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
+	Global.init_loot_table()
 	Global.start_game()
 
 

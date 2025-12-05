@@ -6,7 +6,7 @@ signal pressed
 
 func init(weapon: Weapon) -> void:
 	var upgrade: WeaponUpgrade = weapon.get_next_upgrade()
-	%Name.text = "[b]%s[/b]" % weapon.weapon_name
+	%Name.text = "[b]%s[/b]" % weapon.item_name
 	%FlavorText.text = "[i]%s[/i]" % weapon.flavor_text
 	%UpgradeText.text = upgrade.description
 	%WeaponIcon.texture = weapon.icon

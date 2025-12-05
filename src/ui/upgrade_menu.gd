@@ -13,7 +13,7 @@ func add_upgrade() -> void:
 	var item: UpgradeItemEntry = ITEM.instantiate()
 
 	# hardcoded for now
-	item.init(Global.get_player().weapon)
+	item.init(Global.get_player().weapons[0])
 
 	item.pressed.connect(item_selected.emit)
 	%ItemContainer.add_child(item)

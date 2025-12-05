@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://4ldc5brsy4ed"]
 
-[ext_resource type="Script" uid="uid://bupqxm2gktyjc" path="res://src/weapons/ram_stick.gd" id="1_0xism"]
+[ext_resource type="Script" uid="uid://bupqxm2gktyjc" path="res://src/items/ram_stick.gd" id="1_0xism"]
 [ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="1_e2cwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xism"]

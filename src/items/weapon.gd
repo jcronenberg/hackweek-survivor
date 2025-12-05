@@ -2,7 +2,7 @@ class_name Weapon
 extends Node2D
 
 @export var icon: CompressedTexture2D
-@export var weapon_name: String
+@export var item_name: String
 @export var flavor_text: String
 @export var upgrades: Array[WeaponUpgrade] = []
 @export var fire_rate: float = 1.0

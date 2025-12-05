@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp5rdb82xhi7m"]
+[gd_scene load_steps=9 format=3 uid="uid://deblwcamwbmh"]
 
-[ext_resource type="Script" uid="uid://156xo7hvo5o4" path="res://src/weapons/weapon_ram.gd" id="1_7q5vt"]
+[ext_resource type="Script" uid="uid://156xo7hvo5o4" path="res://src/items/weapon_ram.gd" id="1_7q5vt"]
 [ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="2_f5mf7"]
-[ext_resource type="Script" uid="uid://c6xhuun4ea266" path="res://src/weapons/weapon_upgrade.gd" id="2_na080"]
+[ext_resource type="Script" uid="uid://c6xhuun4ea266" path="res://src/items/weapon_upgrade.gd" id="2_na080"]
 
 [sub_resource type="Resource" id="Resource_f5mf7"]
 script = ExtResource("2_na080")
@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 [node name="WeaponRam" type="Node2D"]
 script = ExtResource("1_7q5vt")
 icon = ExtResource("2_f5mf7")
-weapon_name = "RAM"
+item_name = "RAM"
 flavor_text = "Most expensive item"
 upgrades = Array[ExtResource("2_na080")]([SubResource("Resource_f5mf7"), SubResource("Resource_85bgi"), SubResource("Resource_ohcxl"), SubResource("Resource_na080"), SubResource("Resource_7q5vt"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl"), SubResource("Resource_ohcxl")])
 damage = 10

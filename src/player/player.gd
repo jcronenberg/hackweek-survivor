@@ -2,19 +2,20 @@ class_name Player
 extends CharacterBody2D
 
 const DAMAGE_TICK_TIME = 0.3
-const WEAPON_RAM = preload("uid://dp5rdb82xhi7m")
 
 @export var speed: int = 400
 @export var max_health: int = 100
 @export var health: int = 100
 @export var level_requirement: int = 20
 @export var level_scaling: float = 1.2
+@export var weapons: Array[Weapon] = []
+@export var upgrades: Upgrades
+@export var tmp: Array[UpgradeItem]
 @export var xp: int = 0:
 	set(value):
 		xp = value
 		Global.get_ui().set_xp_amount(value)
-		if value >= next_level and \
-			weapon.level < weapon.max_level:
+		if value >= next_level:
 			level_requirement = int(level_requirement * level_scaling)
 			next_level += level_requirement
 			Global.get_ui().show_upgrade()
@@ -24,7 +25,6 @@ const WEAPON_RAM = preload("uid://dp5rdb82xhi7m")
 var collided_enemies: Array[Enemy] = []
 var damage_delta_time: float = 0.0
 var damage_tween: Tween
-var weapon: Weapon = null
 var next_level: int = 20:
 	set(value):
 		Global.get_ui().set_max_xp(value)
@@ -32,8 +32,18 @@ var next_level: int = 20:
 
 
 func _ready() -> void:
-	weapon = WEAPON_RAM.instantiate()
-	add_child(weapon)
+	add_weapon(Global.loot_table.weapons[0])
+
+
+func _physics_process(delta: float) -> void:
+	_move()
+	_calculate_damage(delta)
+
+
+func add_weapon(weapon: Weapon) -> void:
+	weapons.append(weapon)
+	weapon.owner = null
+	weapon.reparent(self)
 
 
 func _move() -> void:
@@ -51,11 +61,6 @@ func _move() -> void:
 
 	velocity = direction.normalized() * speed
 	move_and_slide()
-
-
-func _physics_process(delta: float) -> void:
-	_move()
-	_calculate_damage(delta)
 
 
 func _calculate_damage(delta: float) -> void:

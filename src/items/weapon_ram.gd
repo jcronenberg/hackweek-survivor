@@ -22,20 +22,20 @@ func fire() -> void:
 
 	var direction: Vector2 = global_position.direction_to(target.global_position).normalized()
 
-	if projectiles == 1:
+	if get_projectiles() == 1:
 		_shoot_ram_at(direction)
 		return
 
 	var cur_angle: float = -spread * ((projectiles - 1) / 2.0)
 
-	for _i in projectiles:
+	for _i in get_projectiles():
 		_shoot_ram_at(direction.rotated(deg_to_rad(cur_angle)))
 		cur_angle += spread
 
 
 func _shoot_ram_at(direction: Vector2) -> void:
 	var projectile: RamStick = RAM_STICK.instantiate()
-	projectile.damage = damage
+	projectile.damage = get_damage()
 	projectile.speed = projectile_speed
 	projectile.push_power = push_power
 	projectile.direction = direction

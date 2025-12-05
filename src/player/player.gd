@@ -9,15 +9,18 @@ const DAMAGE_TICK_TIME = 0.3
 @export var level_requirement: int = 20
 @export var level_scaling: float = 1.2
 @export var weapons: Array[Weapon] = []
-@export var upgrades: Upgrades
+@export var upgrades: Upgrades = Upgrades.new()
 @export var tmp: Array[UpgradeItem]
 @export var xp: int = 0:
 	set(value):
 		xp = value
+		if level >= max_level:
+			return
 		Global.get_ui().set_xp_amount(value)
 		if value >= next_level:
 			level_requirement = int(level_requirement * level_scaling)
 			next_level += level_requirement
+			level += 1
 			Global.get_ui().show_upgrade()
 
 @onready var player_sprite: Sprite2D = $PlayerSprite
@@ -25,6 +28,8 @@ const DAMAGE_TICK_TIME = 0.3
 var collided_enemies: Array[Enemy] = []
 var damage_delta_time: float = 0.0
 var damage_tween: Tween
+var level: int = 1
+var max_level: int = 0
 var next_level: int = 20:
 	set(value):
 		Global.get_ui().set_max_xp(value)
@@ -33,6 +38,7 @@ var next_level: int = 20:
 
 func _ready() -> void:
 	add_weapon(Global.loot_table.weapons[0])
+	max_level = Global.loot_table.calculate_max_level()
 
 
 func _physics_process(delta: float) -> void:
@@ -43,7 +49,13 @@ func _physics_process(delta: float) -> void:
 func add_weapon(weapon: Weapon) -> void:
 	weapons.append(weapon)
 	weapon.owner = null
+	weapon.player_upgrades = upgrades
 	weapon.reparent(self)
+
+
+func add_upgrade_item(upgrade: UpgradeItem) -> void:
+	upgrades.upgrades.append(upgrade)
+	upgrade.leveled_up.connect(upgrades.update_modifiers)
 
 
 func _move() -> void:

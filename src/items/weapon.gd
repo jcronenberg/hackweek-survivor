@@ -16,6 +16,7 @@ extends Node2D
 
 var fire_rate_delta_time: float = 0.0
 var level: int = 0
+var player_upgrades: Upgrades = null
 var max_level: int:
 	get():
 		return upgrades.size() - 1
@@ -57,6 +58,30 @@ func level_up() -> void:
 	projectile_speed += upgrade.mod_projectile_speed
 	spread += upgrade.mod_spread * spread
 	push_power += upgrade.mod_push_power
+
+
+func get_fire_rate() -> float:
+	if player_upgrades:
+		return fire_rate - player_upgrades.mod_fire_rate
+	return fire_rate
+
+
+func get_damage() -> int:
+	if player_upgrades:
+		return damage + player_upgrades.mod_damage
+	return damage
+
+
+func get_area_multiplier() -> float:
+	if player_upgrades:
+		return area_multiplier + player_upgrades.mod_area_multiplier
+	return area_multiplier
+
+
+func get_projectiles() -> int:
+	if player_upgrades:
+		return projectiles + player_upgrades.mod_projectiles
+	return projectiles
 
 
 func get_next_upgrade() -> WeaponUpgrade:

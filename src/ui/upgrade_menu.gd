@@ -6,15 +6,14 @@ signal item_selected
 
 
 func _ready() -> void:
-	add_upgrade()
+	var upgrades: Array = Global.loot_table.get_possible_upgrades(2)
+	for upgrade in upgrades:
+		add_upgrade(upgrade)
 
 
-func add_upgrade() -> void:
+func add_upgrade(upgrade) -> void:
 	var item: UpgradeItemEntry = ITEM.instantiate()
-
-	# hardcoded for now
-	item.init(Global.get_player().weapons[0])
-
+	item.init(upgrade)
 	item.pressed.connect(item_selected.emit)
 	%ItemContainer.add_child(item)
 	item.grab_focus()

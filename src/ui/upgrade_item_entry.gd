@@ -4,13 +4,14 @@ extends PanelContainer
 signal pressed
 
 
-func init(weapon: Weapon) -> void:
-	var upgrade: WeaponUpgrade = weapon.get_next_upgrade()
-	%Name.text = "[b]%s[/b]" % weapon.item_name
-	%FlavorText.text = "[i]%s[/i]" % weapon.flavor_text
-	%UpgradeText.text = upgrade.description
-	%WeaponIcon.texture = weapon.icon
-	pressed.connect(weapon.level_up)
+func init(upgrade) -> void:
+	%Name.text = "[b]%s[/b]" % upgrade.item_name
+	%FlavorText.text = "[i]%s[/i]" % upgrade.flavor_text
+	%WeaponIcon.texture = upgrade.icon
+	if upgrade is Weapon:
+		%UpgradeText.text = upgrade.get_next_upgrade().description
+
+	pressed.connect(upgrade.level_up)
 
 
 func _on_button_pressed() -> void:

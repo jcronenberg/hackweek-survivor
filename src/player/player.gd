@@ -16,14 +16,12 @@ const DAMAGE_TICK_TIME = 0.3
 		xp = value
 		if level >= max_level:
 			return
-		Global.get_ui().set_xp_amount(value)
+		Global.ui.set_xp_amount(value)
 		if value >= next_level:
 			level_requirement = int(level_requirement * level_scaling)
 			next_level += level_requirement
 			level += 1
-			Global.get_ui().show_upgrade()
-
-@onready var player_sprite: Sprite2D = $PlayerSprite
+			Global.ui.show_upgrade()
 
 var collided_enemies: Array[Enemy] = []
 var damage_delta_time: float = 0.0
@@ -32,12 +30,12 @@ var level: int = 1
 var max_level: int = 0
 var next_level: int = 20:
 	set(value):
-		Global.get_ui().set_max_xp(value)
+		Global.ui.set_max_xp(value)
 		next_level = value
 
 
 func _ready() -> void:
-	add_weapon(Global.loot_table.weapons[0])
+	Global.loot_table.weapons[0].level_up()
 	max_level = Global.loot_table.calculate_max_level()
 
 
@@ -51,6 +49,7 @@ func add_weapon(weapon: Weapon) -> void:
 	weapon.owner = null
 	weapon.player_upgrades = upgrades
 	weapon.reparent(self)
+	weapon.global_position = global_position
 
 
 func add_upgrade_item(upgrade: UpgradeItem) -> void:

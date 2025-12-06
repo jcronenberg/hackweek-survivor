@@ -15,7 +15,7 @@ var state: UI_STATES = UI_STATES.RUNNING
 
 
 func _ready() -> void:
-	set_max_xp(Global.get_player().level_requirement)
+	set_max_xp(Global.player.level_requirement)
 	if OS.has_feature("editor"):
 		%DebugMenu.visible = true
 

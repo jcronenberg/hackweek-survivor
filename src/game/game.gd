@@ -1,3 +1,4 @@
+class_name Game
 extends Node2D
 
 const ENEMY_GODOT = preload("uid://dcai8d26135ma")
@@ -15,7 +16,6 @@ var _spawn_points: Array[Vector2] = []
 
 
 func _ready() -> void:
-	Global.ui = %Ui
 	Global.kill_count = 0
 
 
@@ -36,6 +36,18 @@ func _physics_process(delta: float) -> void:
 
 func add_pickup(pickup: Pickup) -> void:
 	%Pickups.add_child(pickup)
+
+
+func get_player() -> Player:
+	return %Player
+
+
+func get_ui() -> Ui:
+	return %Ui
+
+
+func get_projectile_node() -> Node2D:
+	return %Projectiles
 
 
 ## This spawning algorithm basically picks a random point a line which is the
@@ -60,7 +72,7 @@ func _generate_spawn_point() -> void:
 			pos = Vector2(0, rand - (2 * rect.x + rect.y))
 
 		pos -= rect / 2
-		pos += Global.get_player().position
+		pos += %Player.position
 
 	_spawn_points.append(pos)
 

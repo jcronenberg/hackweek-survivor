@@ -7,7 +7,6 @@ const RAM_STICK = preload("uid://4ldc5brsy4ed")
 var audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 func _ready() -> void:
-	max_level = 23
 	audio_player.stream = SOUND
 	audio_player.pitch_scale = 1.2
 	add_child(audio_player)
@@ -41,4 +40,4 @@ func _shoot_ram_at(direction: Vector2) -> void:
 	projectile.push_power = push_power
 	projectile.direction = direction
 	projectile.global_position = global_position
-	add_child(projectile)
+	Global.projectile_node.add_child(projectile)

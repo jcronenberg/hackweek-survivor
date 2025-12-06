@@ -16,9 +16,14 @@ signal leveled_up
 var level: int = 0
 
 
+func _init() -> void:
+	# Needs to be local to scene, otherwise it will persist across game restarts
+	resource_local_to_scene = true
+
+
 func level_up() -> void:
 	if level == 0: # Upgrade is being added
-		Global.get_player().add_upgrade_item(self)
+		Global.player.add_upgrade_item(self)
 
 	level += 1
 	leveled_up.emit()

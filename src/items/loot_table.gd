@@ -32,7 +32,7 @@ func get_possible_upgrades(amount: int) -> Array:
 func calculate_max_level() -> int:
 	var ret: int = 0
 	for weapon in weapons:
-		ret += weapon.upgrades.size()
+		ret += weapon.max_level
 
 	for upgrade in upgrades:
 		ret += upgrade.max_level

@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 
 
 func move_to_player(_delta: float) -> void:
-	var player_pos: Vector2 = Global.get_player().global_position
+	var player_pos: Vector2 = Global.player.global_position
 	velocity = position.direction_to(player_pos).normalized() * speed
 
 	if velocity.x > 0: # right

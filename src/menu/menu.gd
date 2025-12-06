@@ -1,3 +1,4 @@
+class_name Menu
 extends Control
 
 const START_MENU = preload("uid://cg0rfyt64xmi5")

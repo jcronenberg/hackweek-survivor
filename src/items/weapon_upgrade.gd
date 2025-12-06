@@ -11,3 +11,4 @@ extends Resource
 @export var mod_projectile_speed: float = 0.0
 @export var mod_spread: float = 0
 @export var mod_push_power: int = 0
+@export var mod_duration: float = 0.0

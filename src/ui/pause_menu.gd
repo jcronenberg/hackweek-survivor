@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_return_game_button_pressed() -> void:
-	Global.get_ui().toggle_pause_menu()
+	Global.ui.toggle_pause_menu()
 
 
 func _on_return_menu_button_pressed() -> void:

@@ -13,13 +13,14 @@ extends Node2D
 ## In degrees
 @export var spread: float = 0
 @export var push_power: int = 0
+@export var duration: float = 0.0
 
 var fire_rate_delta_time: float = 0.0
 var level: int = 0
 var player_upgrades: Upgrades = null
 var max_level: int:
 	get():
-		return upgrades.size() - 1
+		return upgrades.size()
 
 
 func _physics_process(delta: float) -> void:
@@ -48,7 +49,9 @@ func find_nearest_enemy() -> Enemy:
 
 func level_up() -> void:
 	assert(level < max_level)
-	level += 1
+
+	if level == 0:
+		Global.player.add_weapon(self)
 
 	var upgrade: WeaponUpgrade = upgrades[level]
 	fire_rate -= upgrade.mod_fire_rate * fire_rate
@@ -58,6 +61,9 @@ func level_up() -> void:
 	projectile_speed += upgrade.mod_projectile_speed
 	spread += upgrade.mod_spread * spread
 	push_power += upgrade.mod_push_power
+	duration += upgrade.mod_duration
+
+	level += 1
 
 
 func get_fire_rate() -> float:
@@ -85,7 +91,7 @@ func get_projectiles() -> int:
 
 
 func get_next_upgrade() -> WeaponUpgrade:
-	return upgrades[level + 1] if level < max_level else null
+	return upgrades[level] if level < max_level else null
 
 
 func _on_level_up() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0yrt5u4uw6ec"]
+[gd_scene load_steps=34 format=3 uid="uid://c0yrt5u4uw6ec"]
 
 [ext_resource type="Script" uid="uid://b0iguyggjvk2n" path="res://src/items/loot_table.gd" id="1_xfho3"]
 [ext_resource type="Script" uid="uid://dphjc5kvqupte" path="res://src/items/upgrade_item.gd" id="2_jq4si"]
@@ -9,9 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="5_umwwn"]
 [ext_resource type="Script" uid="uid://c6xhuun4ea266" path="res://src/items/weapon_upgrade.gd" id="6_46kmj"]
 [ext_resource type="Texture2D" uid="uid://ccomv5vvoueqp" path="res://assets/sprites/resolution_increase.png" id="6_ab5ld"]
+[ext_resource type="Script" uid="uid://dkptnurnkut4b" path="res://src/items/weapon_cablenado.gd" id="10_ab5ld"]
+[ext_resource type="Texture2D" uid="uid://dhvygnplx82pe" path="res://assets/sprites/cablenado.png" id="11_38mrp"]
 
 [sub_resource type="Resource" id="Resource_umwwn"]
-resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("3_jq4si")
 item_name = "Multithreading"
@@ -22,7 +23,6 @@ max_level = 3
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_ab5ld"]
-resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("4_46kmj")
 item_name = "Power upgrade"
@@ -33,7 +33,6 @@ max_level = 4
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_38mrp"]
-resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("5_q02wt")
 item_name = "Overclocking"
@@ -44,7 +43,6 @@ max_level = 6
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_m41b2"]
-resource_local_to_scene = true
 script = ExtResource("2_jq4si")
 icon = ExtResource("6_ab5ld")
 item_name = "Resolution upgrade"
@@ -101,9 +99,67 @@ description = "Projectiles +1"
 mod_projectiles = 1
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
+[sub_resource type="Resource" id="Resource_y2bml"]
+script = ExtResource("6_46kmj")
+description = "Tornados wander around randomly"
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_gs61j"]
+script = ExtResource("6_46kmj")
+description = "Increase area by 10%"
+mod_area_multiplier = 0.1
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_b1p6b"]
+script = ExtResource("6_46kmj")
+description = "Damage +10"
+mod_damage = 10
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_e5cvq"]
+script = ExtResource("6_46kmj")
+description = "Projectiles +1"
+mod_projectiles = 1
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_rjp6l"]
+script = ExtResource("6_46kmj")
+description = "Increase projectile speed by 20%"
+mod_projectile_speed = 0.2
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_m5a77"]
+script = ExtResource("6_46kmj")
+description = "Duration +0.5s"
+mod_duration = 0.5
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_wixpk"]
+script = ExtResource("6_46kmj")
+description = "Damage +20"
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_qbw7o"]
+script = ExtResource("6_46kmj")
+description = "Projectiles +1"
+mod_projectiles = 1
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_fdrur"]
+script = ExtResource("6_46kmj")
+description = "Increase area by 20%"
+mod_area_multiplier = 0.2
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_vmic7"]
+script = ExtResource("6_46kmj")
+description = "Duration +2s"
+mod_duration = 2.0
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
 [node name="LootTable" type="Node" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_xfho3")
-weapons = [NodePath("WeaponRam")]
+weapons = [NodePath("WeaponRam"), NodePath("WeaponCablenado")]
 upgrades = Array[ExtResource("2_jq4si")]([SubResource("Resource_umwwn"), SubResource("Resource_ab5ld"), SubResource("Resource_38mrp"), SubResource("Resource_m41b2")])
 metadata/_custom_type_script = "uid://b0iguyggjvk2n"
 
@@ -118,3 +174,15 @@ projectile_speed = 800.0
 spread = 15.0
 push_power = 50
 metadata/_custom_type_script = "uid://156xo7hvo5o4"
+
+[node name="WeaponCablenado" type="Node2D" parent="."]
+script = ExtResource("10_ab5ld")
+icon = ExtResource("11_38mrp")
+item_name = "Cablenado"
+flavor_text = "Who caused this mess"
+upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_y2bml"), SubResource("Resource_gs61j"), SubResource("Resource_b1p6b"), SubResource("Resource_e5cvq"), SubResource("Resource_rjp6l"), SubResource("Resource_m5a77"), SubResource("Resource_wixpk"), SubResource("Resource_qbw7o"), SubResource("Resource_fdrur"), SubResource("Resource_vmic7")])
+fire_rate = 1.5
+damage = 20
+projectile_speed = 350.0
+duration = 4.0
+metadata/_custom_type_script = "uid://d2p6u0h8qf8be"

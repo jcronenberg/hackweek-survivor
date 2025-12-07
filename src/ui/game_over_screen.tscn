@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtoedoqiavd80"]
 
 [ext_resource type="Script" uid="uid://collgs5fc5fbe" path="res://src/ui/game_over_screen.gd" id="1_wmw1d"]
-[ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="2_bdo0u"]
+[ext_resource type="Script" path="res://src/ui/hover_focus_button.gd" id="2_bdo0u"]
 
 [node name="GameOverScreen" type="VBoxContainer"]
 script = ExtResource("1_wmw1d")
@@ -15,12 +15,33 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 106
 text = "Game over"
 
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Your Score: "
+horizontal_alignment = 1
+
+[node name="KillsLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "You killed 0 enemies"
+horizontal_alignment = 1
+
+[node name="XpLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "You gathered 0 XP"
+horizontal_alignment = 1
+
+[node name="Divider" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
 [node name="MenuButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Return to menu"
 script = ExtResource("2_bdo0u")
-metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

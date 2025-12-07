@@ -12,6 +12,7 @@ var time_elapsed: float = 0.0
 var minutes: int
 var seconds: int
 var state: UI_STATES = UI_STATES.RUNNING
+var kills: int = 0
 
 
 func _ready() -> void:
@@ -37,6 +38,7 @@ func set_game_over() -> void:
 
 
 func set_kill_count(amount: int) -> void:
+	kills = amount
 	%KillCountLabel.text = "Kills: %s" % amount
 
 

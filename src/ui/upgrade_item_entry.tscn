@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqe8r8csc8jyw"]
+[gd_scene load_steps=7 format=3 uid="uid://dqe8r8csc8jyw"]
 
 [ext_resource type="Script" uid="uid://cb4665wwovl3l" path="res://src/ui/upgrade_item_entry.gd" id="1_i0hmd"]
 [ext_resource type="Script" path="res://src/ui/hover_focus_button.gd" id="3_vek27"]
@@ -9,6 +9,9 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpm6d"]
+content_margin_right = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yewdp"]
 
@@ -38,7 +41,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/CenterContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_bottom = 8
 
 [node name="TextContainer" type="VBoxContainer" parent="HBoxContainer/CenterContainer/MarginContainer"]
@@ -73,6 +76,12 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="EntryDescription" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dpm6d")
+horizontal_alignment = 2
 
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true

@@ -10,8 +10,10 @@ func init(upgrade) -> void:
 	%WeaponIcon.texture = upgrade.icon
 	if upgrade is Weapon:
 		%UpgradeText.text = upgrade.get_next_upgrade().description
+		%EntryDescription.text = "Weapon"
 	else:
 		%UpgradeText.text = upgrade.description
+		%EntryDescription.text = "Universal upgrade"
 
 	pressed.connect(upgrade.level_up)
 

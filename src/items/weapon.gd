@@ -47,6 +47,13 @@ func find_nearest_enemy() -> Enemy:
 	return nearest
 
 
+func get_random_enemy() -> Enemy:
+	var enemies: Array = get_tree().get_nodes_in_group("enemies")
+	if enemies.size() == 0:
+		return null
+	return enemies.pick_random()
+
+
 func level_up() -> void:
 	assert(level < max_level)
 

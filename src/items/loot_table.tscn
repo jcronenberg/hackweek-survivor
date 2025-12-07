@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c0yrt5u4uw6ec"]
+[gd_scene load_steps=46 format=3 uid="uid://c0yrt5u4uw6ec"]
 
 [ext_resource type="Script" uid="uid://b0iguyggjvk2n" path="res://src/items/loot_table.gd" id="1_xfho3"]
 [ext_resource type="Script" uid="uid://dphjc5kvqupte" path="res://src/items/upgrade_item.gd" id="2_jq4si"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ccomv5vvoueqp" path="res://assets/sprites/resolution_increase.png" id="6_ab5ld"]
 [ext_resource type="Script" uid="uid://dkptnurnkut4b" path="res://src/items/weapon_cablenado.gd" id="10_ab5ld"]
 [ext_resource type="Texture2D" uid="uid://dhvygnplx82pe" path="res://assets/sprites/cablenado.png" id="11_38mrp"]
+[ext_resource type="Script" uid="uid://b14lrnf0fhfik" path="res://src/items/weapon_hard_drive.gd" id="12_m41b2"]
+[ext_resource type="Texture2D" uid="uid://cpdkhg8jx482g" path="res://assets/sprites/spinning_disk.png" id="13_y2bml"]
 
 [sub_resource type="Resource" id="Resource_umwwn"]
 script = ExtResource("2_jq4si")
@@ -157,9 +159,68 @@ description = "Duration +2s"
 mod_duration = 2.0
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
+[sub_resource type="Resource" id="Resource_r1t4t"]
+script = ExtResource("6_46kmj")
+description = "Shoot a hard drive at a random enemy[br]When it hits an enemy it will spin in place"
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_wcwqi"]
+script = ExtResource("6_46kmj")
+description = "Projectile speed +25%"
+mod_projectile_speed = 0.25
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_jioh3"]
+script = ExtResource("6_46kmj")
+description = "Damage +10"
+mod_damage = 10
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_ggq40"]
+script = ExtResource("6_46kmj")
+description = "Area +15%"
+mod_area_multiplier = 0.15
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_o02eo"]
+script = ExtResource("6_46kmj")
+description = "Duration +0.5s"
+mod_duration = 0.5
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_8rr47"]
+script = ExtResource("6_46kmj")
+description = "Projectiles +1"
+mod_projectiles = 1
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_vyr8x"]
+script = ExtResource("6_46kmj")
+description = "Damage +20"
+mod_damage = 20
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_043w3"]
+script = ExtResource("6_46kmj")
+description = "Duration +1s"
+mod_duration = 1.0
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_wkhdg"]
+script = ExtResource("6_46kmj")
+description = "Area +20%"
+mod_area_multiplier = 0.2
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
+[sub_resource type="Resource" id="Resource_mymw7"]
+script = ExtResource("6_46kmj")
+description = "Fire rate +20%"
+mod_fire_rate = 0.2
+metadata/_custom_type_script = "uid://c6xhuun4ea266"
+
 [node name="LootTable" type="Node" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_xfho3")
-weapons = [NodePath("WeaponRam"), NodePath("WeaponCablenado")]
+weapons = [NodePath("WeaponRam"), NodePath("WeaponCablenado"), NodePath("WeaponHardDrive")]
 upgrades = Array[ExtResource("2_jq4si")]([SubResource("Resource_umwwn"), SubResource("Resource_ab5ld"), SubResource("Resource_38mrp"), SubResource("Resource_m41b2")])
 metadata/_custom_type_script = "uid://b0iguyggjvk2n"
 
@@ -185,4 +246,15 @@ fire_rate = 1.5
 damage = 20
 projectile_speed = 350.0
 duration = 4.0
+metadata/_custom_type_script = "uid://d2p6u0h8qf8be"
+
+[node name="WeaponHardDrive" type="Node2D" parent="."]
+script = ExtResource("12_m41b2")
+icon = ExtResource("13_y2bml")
+item_name = "Hard Drive"
+flavor_text = "Spin to win"
+upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_r1t4t"), SubResource("Resource_wcwqi"), SubResource("Resource_jioh3"), SubResource("Resource_ggq40"), SubResource("Resource_o02eo"), SubResource("Resource_8rr47"), SubResource("Resource_vyr8x"), SubResource("Resource_043w3"), SubResource("Resource_wkhdg"), SubResource("Resource_mymw7")])
+damage = 10
+projectile_speed = 500.0
+duration = 1.0
 metadata/_custom_type_script = "uid://d2p6u0h8qf8be"

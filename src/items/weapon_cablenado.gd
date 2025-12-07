@@ -33,6 +33,7 @@ func fire() -> void:
 
 func _shoot_cablenado_in_direction(direction: Vector2) -> void:
 	var cablenado: Cablenado = CABLENADO.instantiate()
+	# cablenado.modulate.a -= level * 0.04
 	cablenado.direction = direction
 	cablenado.duration = duration
 	cablenado.speed = projectile_speed

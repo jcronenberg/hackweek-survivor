@@ -56,6 +56,15 @@ func add_upgrade_item(upgrade: UpgradeItem) -> void:
 	upgrade.leveled_up.connect(upgrades.update_modifiers)
 
 
+## This is only meant for testing.
+func set_to_max_level() -> void:
+	for i in max_level - level:
+		var upgrade = Global.loot_table.get_possible_upgrades(1)
+		upgrade[0].level_up()
+
+	level = max_level
+
+
 func _move() -> void:
 	var direction = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("ui_right"):

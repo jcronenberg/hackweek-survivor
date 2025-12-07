@@ -7,11 +7,11 @@
 radius = 54.00926
 
 [node name="Cablenado" type="Area2D"]
+modulate = Color(1, 1, 1, 0.54901963)
 y_sort_enabled = true
 script = ExtResource("1_aux63")
 
 [node name="Cablenado" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.64705884)
 position = Vector2(9, -83)
 scale = Vector2(1.5625, 1.5625001)
 texture = ExtResource("1_t1y1r")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b38c5iyg7awq"]
+
+[ext_resource type="Script" uid="uid://bpf5gr01xgwwv" path="res://src/items/hard_drive.gd" id="1_7tpby"]
+[ext_resource type="Texture2D" uid="uid://cpdkhg8jx482g" path="res://assets/sprites/spinning_disk.png" id="2_7xfei"]
+[ext_resource type="AudioStream" uid="uid://vm2hsicsopux" path="res://assets/sounds/hdd.wav" id="3_7xfei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqwwq"]
+size = Vector2(94, 116)
+
+[node name="HardDrive" type="Area2D"]
+modulate = Color(1, 1, 1, 0.54901963)
+y_sort_enabled = true
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_7tpby")
+spin_speed = 1080.0
+hit_time = 0.4
+
+[node name="SpinningDisk" type="Sprite2D" parent="."]
+position = Vector2(-13, 0)
+rotation = 1.5707964
+scale = Vector2(1, 1.1328125)
+texture = ExtResource("2_7xfei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_kqwwq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-71.666664, -48.333332, 116.666664, 96.666664)
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_7xfei")
+volume_db = -20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

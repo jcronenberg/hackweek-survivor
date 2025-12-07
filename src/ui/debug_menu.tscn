@@ -20,5 +20,10 @@ text = "Level up"
 layout_mode = 2
 text = "Increase spawn amount"
 
+[node name="MaxLevelButton" type="Button" parent="."]
+layout_mode = 2
+text = "Player max level"
+
 [connection signal="pressed" from="LevelUpButton" to="." method="_on_level_up_button_pressed"]
 [connection signal="pressed" from="SpawnAmountButton" to="." method="_on_spawn_amount_button_pressed"]
+[connection signal="pressed" from="MaxLevelButton" to="." method="_on_max_level_button_pressed"]

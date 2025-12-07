@@ -25,7 +25,7 @@ func fire() -> void:
 		_shoot_ram_at(direction)
 		return
 
-	var cur_angle: float = -spread * ((projectiles - 1) / 2.0)
+	var cur_angle: float = -spread * ((get_projectiles() - 1) / 2.0)
 
 	for _i in get_projectiles():
 		_shoot_ram_at(direction.rotated(deg_to_rad(cur_angle)))

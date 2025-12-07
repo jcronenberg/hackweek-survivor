@@ -3,14 +3,13 @@ extends CharacterBody2D
 
 const DAMAGE_TICK_TIME = 0.3
 
-@export var speed: int = 300
-@export var max_health: int = 100
-@export var health: int = 100
-@export var level_requirement: int = 20
-@export var level_scaling: float = 1.2
+@export var speed: int
+@export var max_health: int
+@export var health: int
+@export var level_requirement: int
+@export var level_scaling: float
 @export var weapons: Array[Weapon] = []
 @export var upgrades: Upgrades = Upgrades.new()
-@export var tmp: Array[UpgradeItem]
 @export var xp: int = 0:
 	set(value):
 		xp = value

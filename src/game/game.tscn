@@ -1971,6 +1971,11 @@ size = Vector2(20352, 20351)
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_bs6l1")
+spawn_rate = 2.0
+spawn_amount = 1
+increase_spawn_amount = 50.0
+enemy_scaling_add = 0.4
+enemy_scaling_time = 50.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -2008,6 +2013,11 @@ shape = SubResource("RectangleShape2D_xptat")
 [node name="Player" parent="." instance=ExtResource("1_7uq6d")]
 unique_name_in_owner = true
 y_sort_enabled = true
+speed = 300
+max_health = 100
+health = 100
+level_requirement = 20
+level_scaling = 1.15
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.8, 0.8)

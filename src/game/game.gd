@@ -1,14 +1,22 @@
 class_name Game
 extends Node2D
 
-const ENEMY_GODOT = preload("uid://dcai8d26135ma")
+const ENEMY_EACCES = preload("uid://dcai8d26135ma")
 const ENEMY_BOSS_SEGFAULT = preload("uid://cnfw626eys7b")
 
-@export var spawn_rate: float = 2.0
-var spawn_delta_time: float = 1.0
-var spawn_amount: int = 2
-var increase_spawn_amount: float = 50.0
+@export var spawn_rate: float
+@onready var spawn_delta_time: float = spawn_rate
+
+@export var spawn_amount: int
+
+@export var increase_spawn_amount: float
 var increase_spawn_amount_time: float = 0.0
+
+@export var enemy_scaling_add: float
+var enemy_scaling = 1.0
+
+@export var enemy_scaling_time: float
+var enemy_scaling_time_delta: float
 
 @onready var spawn_rect: Rect2 = %SpawnAreaShape.shape.get_rect()
 
@@ -32,6 +40,11 @@ func _physics_process(delta: float) -> void:
 	if increase_spawn_amount_time >= increase_spawn_amount:
 		spawn_amount += 1
 		increase_spawn_amount_time = 0.0
+
+	enemy_scaling_time_delta += delta
+	if enemy_scaling_time_delta >= enemy_scaling_time:
+		enemy_scaling += enemy_scaling_add
+		enemy_scaling_time_delta = 0.0
 
 
 func add_pickup(pickup: Pickup) -> void:
@@ -91,10 +104,11 @@ func _spawn_enemies() -> void:
 		if randi() % 20 == 19:
 			enemy = ENEMY_BOSS_SEGFAULT.instantiate()
 		else:
-			enemy = ENEMY_GODOT.instantiate()
+			enemy = ENEMY_EACCES.instantiate()
 
 		enemy.position = pos
 		enemy.spawn_pickup.connect(add_pickup)
+		enemy.scaling = enemy_scaling
 		%Enemies.add_child(enemy)
 
 	_spawn_points = []

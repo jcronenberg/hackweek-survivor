@@ -1,11 +1,15 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var speed: int = 200
-@export var damage: int = 3
-@export var health: int = 20
-@export var weight: int = 20
-@export var xp_amount: int = 1
+@export var speed: int
+@export var damage: int
+@export var health: int
+@export var weight: int
+@export var xp_amount: int
+
+var scaling: float:
+	set(value):
+		health = int(health * value)
 
 signal spawn_pickup(pickup: Pickup)
 

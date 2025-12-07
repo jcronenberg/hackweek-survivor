@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnfw626eys7b"]
 
-[ext_resource type="Script" uid="uid://ldaxyfvtpn4p" path="res://src/enemies/enemy_boss_segfault.gd" id="1_oxoje"]
+[ext_resource type="Script" uid="uid://dc044jlafcpxc" path="res://src/enemies/enemy.gd" id="1_8y7td"]
 [ext_resource type="Texture2D" uid="uid://bag8mhmmtb286" path="res://assets/sprites/segfault_boss.png" id="1_rlsfh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxoje"]
@@ -27,9 +27,12 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="EnemyBossSegfault" type="CharacterBody2D"]
-script = ExtResource("1_oxoje")
-speed = 150
+script = ExtResource("1_8y7td")
+speed = 200
 damage = 10
+health = 100
+weight = 100
+xp_amount = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -103)

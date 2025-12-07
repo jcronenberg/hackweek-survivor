@@ -2,6 +2,16 @@ class_name WeaponCablenado
 extends Weapon
 
 const CABLENADO = preload("uid://b0xxy8chekp8a")
+const SOUND = preload("uid://dvwhcxslnif6v")
+
+var audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
+
+func _ready() -> void:
+	audio_player.stream = SOUND
+	audio_player.pitch_scale = 0.8
+	audio_player.volume_db = -15.0
+	add_child(audio_player)
+
 
 func fire() -> void:
 	var direction: Vector2 = [
@@ -12,6 +22,8 @@ func fire() -> void:
 		Vector2(-1, -1),
 		Vector2(0, -1)
 		].pick_random().normalized()
+
+	audio_player.play()
 
 	_shoot_cablenado_in_direction(direction)
 

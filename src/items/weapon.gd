@@ -25,7 +25,7 @@ var max_level: int:
 
 func _physics_process(delta: float) -> void:
 	fire_rate_delta_time += delta
-	if fire_rate_delta_time >= fire_rate:
+	if fire_rate_delta_time >= get_fire_rate():
 		fire()
 		fire_rate_delta_time = 0.0
 

@@ -37,8 +37,8 @@ script = ExtResource("2_jq4si")
 icon = ExtResource("5_q02wt")
 item_name = "Overclocking"
 flavor_text = "Gotta go faster"
-description = "Increase fire rate by 15%"
-mod_fire_rate = 0.15
+description = "Increase fire rate by 8%"
+mod_fire_rate = 0.08
 max_level = 6
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
@@ -65,8 +65,8 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_na080"]
 script = ExtResource("6_46kmj")
-description = "Increase fire rate by 20%"
-mod_fire_rate = 0.2
+description = "Increase fire rate by 15%"
+mod_fire_rate = 0.15
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_85bgi"]

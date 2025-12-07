@@ -46,6 +46,7 @@ texture = ExtResource("2_rxibo")
 
 [node name="PlayerOutlineSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.57254905)
 z_index = 1000
 position = Vector2(0, -66)
 texture = ExtResource("3_mf2ua")

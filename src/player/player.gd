@@ -61,10 +61,12 @@ func _move() -> void:
 	var direction = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
-		player_sprite.flip_h = false
+		%PlayerSprite.flip_h = false
+		%PlayerOutlineSprite.flip_h = false
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-		player_sprite.flip_h = true
+		%PlayerSprite.flip_h = true
+		%PlayerOutlineSprite.flip_h = true
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
 	if Input.is_action_pressed("ui_up"):

@@ -74,6 +74,14 @@ func show_upgrade() -> void:
 	state = UI_STATES.UPGRADING
 	_clear_menu_container()
 
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(Engine, "time_scale", 0.2, 0.25)
+	tween.tween_callback(_show_upgrade_final)
+
+
+func _show_upgrade_final() -> void:
+	Engine.time_scale = 1
+
 	var upgrade_menu = UPGRADE_MENU.instantiate()
 	upgrade_menu.item_selected.connect(_hide_menu)
 	%MenuContainer.add_child(upgrade_menu)

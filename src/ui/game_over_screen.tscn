@@ -21,16 +21,22 @@ layout_mode = 2
 text = "Your Score: "
 horizontal_alignment = 1
 
+[node name="TimeLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "You survived for 0:00"
+horizontal_alignment = 1
+
 [node name="KillsLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-text = "You killed 0 enemies"
+text = "killed 0 enemies"
 horizontal_alignment = 1
 
 [node name="XpLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-text = "You gathered 0 XP"
+text = "and gathered 0 XP"
 horizontal_alignment = 1
 
 [node name="Divider" type="Control" parent="."]

@@ -9,8 +9,6 @@ const UPGRADE_MENU = preload("uid://dkuwh37hxwif3")
 enum UI_STATES {RUNNING, PAUSED, UPGRADING}
 
 var time_elapsed: float = 0.0
-var minutes: int
-var seconds: int
 var state: UI_STATES = UI_STATES.RUNNING
 var kills: int = 0
 
@@ -24,9 +22,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if state == UI_STATES.RUNNING:
 		time_elapsed += delta
-		minutes = int(time_elapsed / 60)
-		seconds = int(time_elapsed) % 60
-		%TimerLabel.text = "%02d:%02d" % [minutes, seconds]
+		%TimerLabel.text = get_time_string()
+
+
+func get_time_string() -> String:
+	var minutes: int = int(time_elapsed / 60)
+	var seconds: int = int(time_elapsed) % 60
+	return "%02d:%02d" % [minutes, seconds]
 
 
 func set_game_over() -> void:

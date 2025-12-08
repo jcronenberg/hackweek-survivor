@@ -1971,11 +1971,11 @@ size = Vector2(20352, 20351)
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_bs6l1")
-spawn_rate = 2.0
+spawn_rate = 1.8
 spawn_amount = 1
 increase_spawn_amount = 50.0
-enemy_scaling_add = 0.4
-enemy_scaling_time = 50.0
+enemy_scaling_add = 0.5
+enemy_scaling_time = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

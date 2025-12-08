@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c0yrt5u4uw6ec"]
+[gd_scene load_steps=43 format=3 uid="uid://c0yrt5u4uw6ec"]
 
 [ext_resource type="Script" uid="uid://b0iguyggjvk2n" path="res://src/items/loot_table.gd" id="1_xfho3"]
 [ext_resource type="Script" uid="uid://dphjc5kvqupte" path="res://src/items/upgrade_item.gd" id="2_jq4si"]
@@ -21,7 +21,7 @@ item_name = "Multithreading"
 flavor_text = "Here it's always good"
 description = "Projectiles +1"
 mod_projectiles = 1
-max_level = 3
+max_level = 2
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
 [sub_resource type="Resource" id="Resource_ab5ld"]
@@ -39,7 +39,7 @@ script = ExtResource("2_jq4si")
 icon = ExtResource("5_q02wt")
 item_name = "Overclocking"
 flavor_text = "Gotta go faster"
-description = "Increase fire rate by 8%"
+description = "Fire rate +8%"
 mod_fire_rate = 0.08
 max_level = 6
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
@@ -49,8 +49,8 @@ script = ExtResource("2_jq4si")
 icon = ExtResource("6_ab5ld")
 item_name = "Resolution upgrade"
 flavor_text = "Bigger is better"
-description = "Increase area by 20%"
-mod_area_multiplier = 0.2
+description = "Area +15%"
+mod_area_multiplier = 0.15
 max_level = 4
 metadata/_custom_type_script = "uid://dphjc5kvqupte"
 
@@ -67,7 +67,7 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_na080"]
 script = ExtResource("6_46kmj")
-description = "Increase fire rate by 15%"
+description = "Fire rate +15%"
 mod_fire_rate = 0.15
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
@@ -79,13 +79,13 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_7q5vt"]
 script = ExtResource("6_46kmj")
-description = "Increase weapon spread by 25%"
+description = "Spread +25%"
 mod_spread = 0.25
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_46kmj"]
 script = ExtResource("6_46kmj")
-description = "Increase area by 25%"
+description = "Area +25%"
 mod_area_multiplier = 0.25
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
@@ -95,21 +95,9 @@ description = "Damage +20"
 mod_damage = 20
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
-[sub_resource type="Resource" id="Resource_q02wt"]
-script = ExtResource("6_46kmj")
-description = "Projectiles +1"
-mod_projectiles = 1
-metadata/_custom_type_script = "uid://c6xhuun4ea266"
-
 [sub_resource type="Resource" id="Resource_y2bml"]
 script = ExtResource("6_46kmj")
 description = "Tornados wander around randomly"
-metadata/_custom_type_script = "uid://c6xhuun4ea266"
-
-[sub_resource type="Resource" id="Resource_gs61j"]
-script = ExtResource("6_46kmj")
-description = "Increase area by 10%"
-mod_area_multiplier = 0.1
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_b1p6b"]
@@ -126,8 +114,8 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_rjp6l"]
 script = ExtResource("6_46kmj")
-description = "Increase projectile speed by 20%"
-mod_projectile_speed = 0.2
+description = "Projectile speed +25%"
+mod_projectile_speed = 0.25
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_m5a77"]
@@ -139,6 +127,7 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 [sub_resource type="Resource" id="Resource_wixpk"]
 script = ExtResource("6_46kmj")
 description = "Damage +20"
+mod_damage = 20
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_qbw7o"]
@@ -149,14 +138,14 @@ metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_fdrur"]
 script = ExtResource("6_46kmj")
-description = "Increase area by 20%"
+description = "Area +20%"
 mod_area_multiplier = 0.2
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_vmic7"]
 script = ExtResource("6_46kmj")
-description = "Duration +2s"
-mod_duration = 2.0
+description = "Duration +1.5s"
+mod_duration = 1.5
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
 [sub_resource type="Resource" id="Resource_r1t4t"]
@@ -212,12 +201,6 @@ description = "Area +20%"
 mod_area_multiplier = 0.2
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
-[sub_resource type="Resource" id="Resource_mymw7"]
-script = ExtResource("6_46kmj")
-description = "Fire rate +20%"
-mod_fire_rate = 0.2
-metadata/_custom_type_script = "uid://c6xhuun4ea266"
-
 [node name="LootTable" type="Node" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_xfho3")
 weapons = [NodePath("WeaponRam"), NodePath("WeaponCablenado"), NodePath("WeaponHardDrive")]
@@ -229,7 +212,7 @@ script = ExtResource("3_1hu6t")
 icon = ExtResource("5_umwwn")
 item_name = "RAM"
 flavor_text = "Most expensive item"
-upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_f5mf7"), SubResource("Resource_ohcxl"), SubResource("Resource_na080"), SubResource("Resource_85bgi"), SubResource("Resource_ohcxl"), SubResource("Resource_7q5vt"), SubResource("Resource_46kmj"), SubResource("Resource_ohcxl"), SubResource("Resource_fjthk"), SubResource("Resource_q02wt")])
+upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_f5mf7"), SubResource("Resource_ohcxl"), SubResource("Resource_na080"), SubResource("Resource_85bgi"), SubResource("Resource_ohcxl"), SubResource("Resource_7q5vt"), SubResource("Resource_46kmj"), SubResource("Resource_ohcxl"), SubResource("Resource_fjthk")])
 damage = 10
 projectile_speed = 800.0
 spread = 15.0
@@ -241,7 +224,7 @@ script = ExtResource("10_ab5ld")
 icon = ExtResource("11_38mrp")
 item_name = "Cablenado"
 flavor_text = "Who caused this mess"
-upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_y2bml"), SubResource("Resource_gs61j"), SubResource("Resource_b1p6b"), SubResource("Resource_e5cvq"), SubResource("Resource_rjp6l"), SubResource("Resource_m5a77"), SubResource("Resource_wixpk"), SubResource("Resource_qbw7o"), SubResource("Resource_fdrur"), SubResource("Resource_vmic7")])
+upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_y2bml"), SubResource("Resource_b1p6b"), SubResource("Resource_e5cvq"), SubResource("Resource_rjp6l"), SubResource("Resource_m5a77"), SubResource("Resource_wixpk"), SubResource("Resource_qbw7o"), SubResource("Resource_fdrur"), SubResource("Resource_vmic7")])
 fire_rate = 1.5
 damage = 20
 projectile_speed = 350.0
@@ -253,7 +236,7 @@ script = ExtResource("12_m41b2")
 icon = ExtResource("13_y2bml")
 item_name = "Hard Drive"
 flavor_text = "Spin to win"
-upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_r1t4t"), SubResource("Resource_wcwqi"), SubResource("Resource_jioh3"), SubResource("Resource_ggq40"), SubResource("Resource_o02eo"), SubResource("Resource_8rr47"), SubResource("Resource_vyr8x"), SubResource("Resource_043w3"), SubResource("Resource_wkhdg"), SubResource("Resource_mymw7")])
+upgrades = Array[ExtResource("6_46kmj")]([SubResource("Resource_r1t4t"), SubResource("Resource_wcwqi"), SubResource("Resource_jioh3"), SubResource("Resource_ggq40"), SubResource("Resource_o02eo"), SubResource("Resource_8rr47"), SubResource("Resource_vyr8x"), SubResource("Resource_043w3"), SubResource("Resource_wkhdg")])
 damage = 10
 projectile_speed = 500.0
 duration = 1.0

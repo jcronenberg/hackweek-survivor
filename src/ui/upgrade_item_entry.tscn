@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqe8r8csc8jyw"]
 
 [ext_resource type="Script" uid="uid://cb4665wwovl3l" path="res://src/ui/upgrade_item_entry.gd" id="1_i0hmd"]
-[ext_resource type="Script" path="res://src/ui/hover_focus_button.gd" id="3_vek27"]
+[ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="3_vek27"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yewdp"]
 bg_color = Color(1, 1, 1, 0.1882353)
@@ -28,37 +28,46 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_yewdp")
 script = ExtResource("1_i0hmd")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="WeaponIcon" type="TextureRect" parent="HBoxContainer"]
+[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_direction = 2
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 8
 
-[node name="TextContainer" type="VBoxContainer" parent="HBoxContainer/CenterContainer/MarginContainer"]
+[node name="TextContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Name" type="RichTextLabel" parent="HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="Name" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
+text = "Test"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="FlavorText" type="RichTextLabel" parent="HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="FlavorText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -66,11 +75,11 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Spacer" type="Control" parent="HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="UpgradeText" type="RichTextLabel" parent="HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="UpgradeText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true

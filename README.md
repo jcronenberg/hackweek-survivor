@@ -1,12 +1,12 @@
 # Hackweek survivor
 Fight against the evil forces of closed source and proprietary software to survive as long as you can.
 
-A small survivors game developed during SUSE Hackweek.
+A small survivors game developed during SUSE Hackweek 25.
 
 Can be played at https://jcronenberg.itch.io/hackweek-survivor.
 
-Requires Godot 4
+Requires Godot 4 to build from source.
 
 ## License
 Everything under the `src/` directory is licensed MIT.  
-Everything under the `assets` directory is licensed cc0.
+Everything under the `assets/` directory is licensed cc0.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctow5dh60gvg4"]
+[gd_scene format=3 uid="uid://ctow5dh60gvg4"]
 
 [ext_resource type="Script" uid="uid://c3yehy4r7k132" path="res://src/player/player.gd" id="1_gmfve"]
 [ext_resource type="Texture2D" uid="uid://cql8n5gppr5gy" path="res://assets/sprites/hw_geeko_pixel.png" id="2_rxibo"]
@@ -34,29 +34,29 @@ height = 118.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxibo"]
 radius = 269.00186
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=892619849]
 motion_mode = 1
 script = ExtResource("1_gmfve")
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1580622931]
 unique_name_in_owner = true
 texture_repeat = 2
 position = Vector2(0, -66)
 texture = ExtResource("2_rxibo")
 
-[node name="PlayerOutlineSprite" type="Sprite2D" parent="."]
+[node name="PlayerOutlineSprite" type="Sprite2D" parent="." unique_id=576313637]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.57254905)
 z_index = 1000
 position = Vector2(0, -66)
 texture = ExtResource("3_mf2ua")
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=2107351554]
 position = Vector2(-2, -27)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_lowyb")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2047824994]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.70980394)
@@ -70,20 +70,20 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ehvfd")
 value = 100.0
 show_percentage = false
 
-[node name="DamageArea" type="Area2D" parent="."]
+[node name="DamageArea" type="Area2D" parent="." unique_id=1146630859]
 position = Vector2(23.400002, -0.1499939)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1177869434]
 position = Vector2(-24.400002, -25.850006)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_gmfve")
 debug_color = Color(0.83102524, 0.33544555, 0.5368337, 0.41960785)
 
-[node name="PickupArea" type="Area2D" parent="."]
+[node name="PickupArea" type="Area2D" parent="." unique_id=1730323161]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1766808588]
 position = Vector2(0, -27)
 shape = SubResource("CircleShape2D_rxibo")
 

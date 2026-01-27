@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw1xd3uaw81l8"]
+[gd_scene format=3 uid="uid://cw1xd3uaw81l8"]
 
 [ext_resource type="Script" uid="uid://bxylfdtpoiqil" path="res://src/ui/debug_menu.gd" id="1_5g3s2"]
 
-[node name="DebugMenu" type="VBoxContainer"]
+[node name="DebugMenu" type="VBoxContainer" unique_id=72262167]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -12,15 +12,15 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("1_5g3s2")
 
-[node name="LevelUpButton" type="Button" parent="."]
+[node name="LevelUpButton" type="Button" parent="." unique_id=1780196535]
 layout_mode = 2
 text = "Level up"
 
-[node name="SpawnAmountButton" type="Button" parent="."]
+[node name="SpawnAmountButton" type="Button" parent="." unique_id=1587071985]
 layout_mode = 2
 text = "Increase spawn amount"
 
-[node name="MaxLevelButton" type="Button" parent="."]
+[node name="MaxLevelButton" type="Button" parent="." unique_id=755265728]
 layout_mode = 2
 text = "Player max level"
 

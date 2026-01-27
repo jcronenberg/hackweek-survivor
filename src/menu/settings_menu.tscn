@@ -1,26 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv2uajd0ywiqa"]
+[gd_scene format=3 uid="uid://cv2uajd0ywiqa"]
 
 [ext_resource type="Script" uid="uid://wo2thgifcbph" path="res://src/menu/settings_menu.gd" id="1_fvwh4"]
 [ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="2_6g5bj"]
 
-[node name="SettingsMenu" type="VBoxContainer"]
+[node name="SettingsMenu" type="VBoxContainer" unique_id=620968118]
 script = ExtResource("1_fvwh4")
 
-[node name="VolumeHBox" type="HBoxContainer" parent="."]
+[node name="VolumeHBox" type="HBoxContainer" parent="." unique_id=34735199]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="VolumeLabel" type="Label" parent="VolumeHBox"]
+[node name="VolumeLabel" type="Label" parent="VolumeHBox" unique_id=1088945469]
 layout_mode = 2
 text = "Volume"
 
-[node name="VolumeSlider" type="HSlider" parent="VolumeHBox"]
+[node name="VolumeSlider" type="HSlider" parent="VolumeHBox" unique_id=1188897807]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="ReturnButton" type="Button" parent="."]
+[node name="ReturnButton" type="Button" parent="." unique_id=1640288050]
 layout_mode = 2
 text = "Return"
 script = ExtResource("2_6g5bj")

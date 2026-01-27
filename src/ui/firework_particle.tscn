@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgyxcg3df8dle"]
+[gd_scene format=3 uid="uid://cgyxcg3df8dle"]
 
 [sub_resource type="Curve" id="Curve_ce2u8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9673914, 0.26966298), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="FireworkParticle" type="CPUParticles2D"]
+[node name="FireworkParticle" type="CPUParticles2D" unique_id=888481804]
 emitting = false
 amount = 60
 one_shot = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://in34g42h8glb"]
+[gd_scene format=3 uid="uid://in34g42h8glb"]
 
 [ext_resource type="Script" uid="uid://5l6dsmlnce23" path="res://src/ui/ui.gd" id="1_731sn"]
 [ext_resource type="Theme" uid="uid://b4le2mv112gbc" path="res://assets/ui_theme.tres" id="1_jlntk"]
@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wxmc"]
 bg_color = Color(0.2784314, 1, 0.29411766, 1)
 
-[node name="Ui" type="Control"]
+[node name="Ui" type="Control" unique_id=2046654010]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -20,7 +20,7 @@ mouse_filter = 1
 theme = ExtResource("1_jlntk")
 script = ExtResource("1_731sn")
 
-[node name="Fireworks" type="Control" parent="."]
+[node name="Fireworks" type="Control" parent="." unique_id=1486702024]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_8wxmc")
 
-[node name="TopBar" type="VBoxContainer" parent="."]
+[node name="TopBar" type="VBoxContainer" parent="." unique_id=124937642]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -39,7 +39,7 @@ offset_bottom = 58.0
 grow_horizontal = 2
 theme_override_constants/separation = 4
 
-[node name="XpBar" type="ProgressBar" parent="TopBar"]
+[node name="XpBar" type="ProgressBar" parent="TopBar" unique_id=29676879]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -49,28 +49,28 @@ max_value = 0.0
 step = 1.0
 show_percentage = false
 
-[node name="MarginContainer" type="MarginContainer" parent="TopBar"]
+[node name="MarginContainer" type="MarginContainer" parent="TopBar" unique_id=2079300591]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer" unique_id=1934266326]
 layout_mode = 2
 
-[node name="TimerLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer"]
+[node name="TimerLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer" unique_id=426705722]
 unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="Divider" type="Control" parent="TopBar/MarginContainer/HBoxContainer"]
+[node name="Divider" type="Control" parent="TopBar/MarginContainer/HBoxContainer" unique_id=226524302]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="KillCountLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer"]
+[node name="KillCountLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1611202531]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Menu" type="Control" parent="."]
+[node name="Menu" type="Control" parent="." unique_id=1140887676]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -80,7 +80,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Menu"]
+[node name="ColorRect" type="ColorRect" parent="Menu" unique_id=883601742]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,7 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5372549)
 
-[node name="MenuContainer" type="CenterContainer" parent="Menu"]
+[node name="MenuContainer" type="CenterContainer" parent="Menu" unique_id=1602245993]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -98,7 +98,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DebugMenu" parent="." instance=ExtResource("4_8wxmc")]
+[node name="DebugMenu" parent="." unique_id=900199264 instance=ExtResource("4_8wxmc")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

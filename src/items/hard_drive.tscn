@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b38c5iyg7awq"]
+[gd_scene format=3 uid="uid://b38c5iyg7awq"]
 
 [ext_resource type="Script" uid="uid://bpf5gr01xgwwv" path="res://src/items/hard_drive.gd" id="1_7tpby"]
 [ext_resource type="Texture2D" uid="uid://cpdkhg8jx482g" path="res://assets/sprites/spinning_disk.png" id="2_7xfei"]
@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqwwq"]
 size = Vector2(94, 116)
 
-[node name="HardDrive" type="Area2D"]
+[node name="HardDrive" type="Area2D" unique_id=2042873207]
 modulate = Color(1, 1, 1, 0.54901963)
 y_sort_enabled = true
 scale = Vector2(0.6, 0.6)
@@ -15,21 +15,21 @@ script = ExtResource("1_7tpby")
 spin_speed = 1080.0
 hit_time = 0.4
 
-[node name="SpinningDisk" type="Sprite2D" parent="."]
+[node name="SpinningDisk" type="Sprite2D" parent="." unique_id=209789667]
 position = Vector2(-13, 0)
 rotation = 1.5707964
 scale = Vector2(1, 1.1328125)
 texture = ExtResource("2_7xfei")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140550489]
 position = Vector2(-13, 0)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_kqwwq")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1585883407]
 rect = Rect2(-71.666664, -48.333332, 116.666664, 96.666664)
 
-[node name="Audio" type="AudioStreamPlayer" parent="."]
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=1109198233]
 unique_name_in_owner = true
 stream = ExtResource("3_7xfei")
 volume_db = -20.0

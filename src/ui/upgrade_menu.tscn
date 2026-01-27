@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkuwh37hxwif3"]
+[gd_scene format=3 uid="uid://dkuwh37hxwif3"]
 
-[ext_resource type="Script" path="res://src/ui/upgrade_menu.gd" id="1_epq3q"]
+[ext_resource type="Script" uid="uid://d4n1y283lhhuw" path="res://src/ui/upgrade_menu.gd" id="1_epq3q"]
 [ext_resource type="AudioStream" uid="uid://dcjvqjbo82ubx" path="res://assets/sounds/yay.wav" id="2_epq3q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5requ"]
@@ -15,7 +15,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="UpgradeMenu" type="PanelContainer"]
+[node name="UpgradeMenu" type="PanelContainer" unique_id=57896280]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,27 +25,27 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_5requ")
 script = ExtResource("1_epq3q")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=431382546]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1770477263]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=410628548]
 layout_mode = 2
 text = "LEVEL UP!"
 horizontal_alignment = 1
 
-[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=272636923]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 24
 
-[node name="LevelupSound" type="AudioStreamPlayer" parent="."]
+[node name="LevelupSound" type="AudioStreamPlayer" parent="." unique_id=150215658]
 stream = ExtResource("2_epq3q")
 autoplay = true

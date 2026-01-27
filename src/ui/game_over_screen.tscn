@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtoedoqiavd80"]
+[gd_scene format=3 uid="uid://dtoedoqiavd80"]
 
 [ext_resource type="Script" uid="uid://collgs5fc5fbe" path="res://src/ui/game_over_screen.gd" id="1_wmw1d"]
-[ext_resource type="Script" path="res://src/ui/hover_focus_button.gd" id="2_bdo0u"]
+[ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="2_bdo0u"]
 
-[node name="GameOverScreen" type="VBoxContainer"]
+[node name="GameOverScreen" type="VBoxContainer" unique_id=1096041068]
 script = ExtResource("1_wmw1d")
 
-[node name="GameOverLabel" type="Label" parent="."]
+[node name="GameOverLabel" type="Label" parent="." unique_id=555324668]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7806942, 4.548356e-06, 4.813075e-07, 1)
@@ -15,35 +15,35 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 106
 text = "Game over"
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="." unique_id=1683285236]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Your Score: "
 horizontal_alignment = 1
 
-[node name="TimeLabel" type="Label" parent="."]
+[node name="TimeLabel" type="Label" parent="." unique_id=1460902255]
 unique_name_in_owner = true
 layout_mode = 2
 text = "You survived for 0:00"
 horizontal_alignment = 1
 
-[node name="KillsLabel" type="Label" parent="."]
+[node name="KillsLabel" type="Label" parent="." unique_id=488280806]
 unique_name_in_owner = true
 layout_mode = 2
 text = "killed 0 enemies"
 horizontal_alignment = 1
 
-[node name="XpLabel" type="Label" parent="."]
+[node name="XpLabel" type="Label" parent="." unique_id=1624243603]
 unique_name_in_owner = true
 layout_mode = 2
 text = "and gathered 0 XP"
 horizontal_alignment = 1
 
-[node name="Divider" type="Control" parent="."]
+[node name="Divider" type="Control" parent="." unique_id=1376656399]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="MenuButton" type="Button" parent="."]
+[node name="MenuButton" type="Button" parent="." unique_id=1297697733]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

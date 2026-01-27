@@ -1,28 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg0rfyt64xmi5"]
+[gd_scene format=3 uid="uid://cg0rfyt64xmi5"]
 
 [ext_resource type="Script" uid="uid://dij57go8spvyi" path="res://src/menu/start_menu.gd" id="1_mh4wf"]
 [ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="2_y57qw"]
 
-[node name="StartMenu" type="VBoxContainer"]
+[node name="StartMenu" type="VBoxContainer" unique_id=192006135]
 offset_right = 130.0
 offset_bottom = 108.0
 theme_override_constants/separation = 24
 script = ExtResource("1_mh4wf")
 
-[node name="PlayButton" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="." unique_id=680777828]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Play Game"
 script = ExtResource("2_y57qw")
 metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="SettingsButton" type="Button" parent="." unique_id=1721943853]
 layout_mode = 2
 text = "Settings"
 script = ExtResource("2_y57qw")
 metadata/_custom_type_script = "uid://udjuyj2etcbv"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="." unique_id=1320711201]
 layout_mode = 2
 text = "Quit"
 script = ExtResource("2_y57qw")

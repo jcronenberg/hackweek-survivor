@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://deblwcamwbmh"]
+[gd_scene format=3 uid="uid://deblwcamwbmh"]
 
 [ext_resource type="Script" uid="uid://156xo7hvo5o4" path="res://src/items/weapon_ram.gd" id="1_7q5vt"]
 [ext_resource type="Texture2D" uid="uid://cnk1sh4jbxs" path="res://assets/sprites/ram_stick.png" id="2_f5mf7"]
@@ -33,7 +33,7 @@ description = "Decrease weapon spread by 25%"
 mod_spread = -0.5
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
-[node name="WeaponRam" type="Node2D"]
+[node name="WeaponRam" type="Node2D" unique_id=1668987941]
 script = ExtResource("1_7q5vt")
 icon = ExtResource("2_f5mf7")
 item_name = "RAM"

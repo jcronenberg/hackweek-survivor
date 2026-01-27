@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqe8r8csc8jyw"]
+[gd_scene format=3 uid="uid://dqe8r8csc8jyw"]
 
 [ext_resource type="Script" uid="uid://cb4665wwovl3l" path="res://src/ui/upgrade_item_entry.gd" id="1_i0hmd"]
 [ext_resource type="Script" uid="uid://udjuyj2etcbv" path="res://src/ui/hover_focus_button.gd" id="3_vek27"]
@@ -18,7 +18,7 @@ content_margin_right = 4.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4svth"]
 bg_color = Color(1, 1, 1, 0.7058824)
 
-[node name="UpgradeItemEntry" type="PanelContainer"]
+[node name="UpgradeItemEntry" type="PanelContainer" unique_id=838010656]
 custom_minimum_size = Vector2(400, 0)
 offset_right = 400.0
 offset_bottom = 118.0
@@ -28,36 +28,36 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_yewdp")
 script = ExtResource("1_i0hmd")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=963597874]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=856132087]
 layout_mode = 2
 
-[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=2134764514]
 unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" unique_id=311928605]
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/CenterContainer" unique_id=1402519915]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 8
 
-[node name="TextContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer"]
+[node name="TextContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer" unique_id=440871050]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Name" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="Name" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer" unique_id=1239638480]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/bold_font_size = 24
@@ -67,7 +67,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="FlavorText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="FlavorText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer" unique_id=1242665591]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -75,11 +75,11 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer" unique_id=959782511]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="UpgradeText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer"]
+[node name="UpgradeText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/CenterContainer/MarginContainer/TextContainer" unique_id=68644294]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -87,13 +87,13 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="EntryDescription" type="RichTextLabel" parent="."]
+[node name="EntryDescription" type="RichTextLabel" parent="." unique_id=174316427]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dpm6d")
 horizontal_alignment = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1570580198]
 unique_name_in_owner = true
 layout_mode = 2
 focus_behavior_recursive = 2

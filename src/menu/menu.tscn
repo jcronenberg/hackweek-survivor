@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpofklbo6xjew"]
+[gd_scene format=3 uid="uid://cpofklbo6xjew"]
 
 [ext_resource type="Texture2D" uid="uid://smadr0ts37js" path="res://assets/sprites/hw25_menu.png" id="1_45w1x"]
 [ext_resource type="Theme" uid="uid://b4le2mv112gbc" path="res://assets/ui_theme.tres" id="1_56xr1"]
 [ext_resource type="Script" uid="uid://ci0g02uy2twym" path="res://src/menu/menu.gd" id="1_sblgy"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=649736974]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ grow_vertical = 2
 theme = ExtResource("1_56xr1")
 script = ExtResource("1_sblgy")
 
-[node name="Bg" type="ColorRect" parent="."]
+[node name="Bg" type="ColorRect" parent="." unique_id=1068734778]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1273711, 0.1273711, 0.1273711, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1917624003]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1727792112]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -39,11 +39,11 @@ text = "Hackweek Survivor"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=321657170]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=166893532]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_vertical = 8
@@ -51,7 +51,7 @@ texture = ExtResource("1_45w1x")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="MenuMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="MenuMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=2086345810]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 12
@@ -59,6 +59,6 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="MenuContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/MenuMargin"]
+[node name="MenuContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/MenuMargin" unique_id=1703401445]
 unique_name_in_owner = true
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c0yrt5u4uw6ec"]
+[gd_scene format=3 uid="uid://c0yrt5u4uw6ec"]
 
 [ext_resource type="Script" uid="uid://b0iguyggjvk2n" path="res://src/items/loot_table.gd" id="1_xfho3"]
 [ext_resource type="Script" uid="uid://dphjc5kvqupte" path="res://src/items/upgrade_item.gd" id="2_jq4si"]
@@ -201,13 +201,13 @@ description = "Area +20%"
 mod_area_multiplier = 0.2
 metadata/_custom_type_script = "uid://c6xhuun4ea266"
 
-[node name="LootTable" type="Node" node_paths=PackedStringArray("weapons")]
+[node name="LootTable" type="Node" unique_id=597382452 node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_xfho3")
 weapons = [NodePath("WeaponRam"), NodePath("WeaponCablenado"), NodePath("WeaponHardDrive")]
 upgrades = Array[ExtResource("2_jq4si")]([SubResource("Resource_umwwn"), SubResource("Resource_ab5ld"), SubResource("Resource_38mrp"), SubResource("Resource_m41b2")])
 metadata/_custom_type_script = "uid://b0iguyggjvk2n"
 
-[node name="WeaponRam" type="Node2D" parent="."]
+[node name="WeaponRam" type="Node2D" parent="." unique_id=1806485605]
 script = ExtResource("3_1hu6t")
 icon = ExtResource("5_umwwn")
 item_name = "RAM"
@@ -219,7 +219,7 @@ spread = 15.0
 push_power = 50
 metadata/_custom_type_script = "uid://156xo7hvo5o4"
 
-[node name="WeaponCablenado" type="Node2D" parent="."]
+[node name="WeaponCablenado" type="Node2D" parent="." unique_id=370340309]
 script = ExtResource("10_ab5ld")
 icon = ExtResource("11_38mrp")
 item_name = "Cablenado"
@@ -231,7 +231,7 @@ projectile_speed = 350.0
 duration = 4.0
 metadata/_custom_type_script = "uid://d2p6u0h8qf8be"
 
-[node name="WeaponHardDrive" type="Node2D" parent="."]
+[node name="WeaponHardDrive" type="Node2D" parent="." unique_id=528453955]
 script = ExtResource("12_m41b2")
 icon = ExtResource("13_y2bml")
 item_name = "Hard Drive"

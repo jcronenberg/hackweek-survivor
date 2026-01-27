@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnfw626eys7b"]
+[gd_scene format=3 uid="uid://cnfw626eys7b"]
 
 [ext_resource type="Script" uid="uid://dc044jlafcpxc" path="res://src/enemies/enemy.gd" id="1_8y7td"]
 [ext_resource type="Texture2D" uid="uid://bag8mhmmtb286" path="res://assets/sprites/segfault_boss.png" id="1_rlsfh"]
@@ -26,7 +26,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="EnemyBossSegfault" type="CharacterBody2D"]
+[node name="EnemyBossSegfault" type="CharacterBody2D" unique_id=29455267]
 script = ExtResource("1_8y7td")
 speed = 200
 damage = 10
@@ -34,17 +34,17 @@ health = 100
 weight = 100
 xp_amount = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1306568481]
 position = Vector2(0, -103)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("1_rlsfh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918933041]
 position = Vector2(-13, -30)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_oxoje")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=672909083]
 unique_name_in_owner = true
 visible = false
 offset_left = -100.0

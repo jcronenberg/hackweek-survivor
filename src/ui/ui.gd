@@ -8,15 +8,28 @@ const UPGRADE_MENU = preload("uid://dkuwh37hxwif3")
 
 enum UI_STATES {RUNNING, PAUSED, UPGRADING}
 
+@onready var lower_top_bar_margin: MarginContainer = %LowerTopBarMargin
+
 var time_elapsed: float = 0.0
 var state: UI_STATES = UI_STATES.RUNNING
 var kills: int = 0
+var virtual_joystick: VirtualJoystick = null
 
 
 func _ready() -> void:
 	set_max_xp(Global.player.level_requirement)
 	if OS.has_feature("editor"):
 		%DebugMenu.visible = true
+	if OS.has_feature("mobile"):
+		%LowerTopBarMargin.add_theme_constant_override("margin_left", 100)
+		%LowerTopBarMargin.add_theme_constant_override("margin_right", 100)
+		%MobileMenuButton.visible = true
+		%MobileMenuButton.pressed.connect(toggle_pause_menu)
+		%Divider.visible = true
+		virtual_joystick = VirtualJoystick.new()
+		virtual_joystick.is_active = true
+		add_child(virtual_joystick)
+		move_child(virtual_joystick, 0)
 
 
 func _physics_process(delta: float) -> void:
@@ -31,12 +44,18 @@ func get_time_string() -> String:
 	return "%02d:%02d" % [minutes, seconds]
 
 
+func _update_joystick() -> void:
+	if virtual_joystick:
+		virtual_joystick.is_active = (state == UI_STATES.RUNNING)
+
+
 func set_game_over() -> void:
 	_clear_menu_container()
 	state = UI_STATES.PAUSED
 	var game_over_screen = GAME_OVER_SCREEN.instantiate()
 	%Menu.visible = true
 	%MenuContainer.add_child(game_over_screen)
+	_update_joystick()
 
 
 func set_kill_count(amount: int) -> void:
@@ -72,10 +91,12 @@ func toggle_pause_menu() -> void:
 		_add_pause_menu()
 	else:
 		_hide_menu()
+	_update_joystick()
 
 
 func show_upgrade() -> void:
 	state = UI_STATES.UPGRADING
+	_update_joystick()
 	_clear_menu_container()
 
 	var tween: Tween = get_tree().create_tween()
@@ -106,6 +127,7 @@ func _hide_menu() -> void:
 	%Fireworks.visible = false
 	get_tree().paused = false
 	_clear_menu_container()
+	_update_joystick()
 
 
 

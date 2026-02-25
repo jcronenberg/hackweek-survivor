@@ -66,19 +66,25 @@ func set_to_max_level() -> void:
 
 
 func _move() -> void:
-	var direction = Vector2.ZERO # The player's movement vector.
+	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
-		%PlayerSprite.flip_h = false
-		%PlayerOutlineSprite.flip_h = false
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-		%PlayerSprite.flip_h = true
-		%PlayerOutlineSprite.flip_h = true
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
+
+	if Global.ui and Global.ui.virtual_joystick:
+		direction += Global.ui.virtual_joystick.direction
+
+	if direction.x > 0:
+		%PlayerSprite.flip_h = false
+		%PlayerOutlineSprite.flip_h = false
+	elif direction.x < 0:
+		%PlayerSprite.flip_h = true
+		%PlayerOutlineSprite.flip_h = true
 
 	velocity = direction.normalized() * speed
 	move_and_slide()

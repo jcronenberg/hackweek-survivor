@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://b4le2mv112gbc" path="res://assets/ui_theme.tres" id="1_jlntk"]
 [ext_resource type="Script" uid="uid://cewau6v1xxv1m" path="res://src/ui/fireworks.gd" id="3_8wxmc"]
 [ext_resource type="PackedScene" uid="uid://cw1xd3uaw81l8" path="res://src/ui/debug_menu.tscn" id="4_8wxmc"]
+[ext_resource type="Texture2D" uid="uid://be56ksxq3dksl" path="res://assets/sprites/hamburger_menu.png" id="4_sjdex"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wxmc"]
 bg_color = Color(0.2784314, 1, 0.29411766, 1)
@@ -49,24 +50,40 @@ max_value = 0.0
 step = 1.0
 show_percentage = false
 
-[node name="MarginContainer" type="MarginContainer" parent="TopBar" unique_id=2079300591]
+[node name="LowerTopBarMargin" type="MarginContainer" parent="TopBar" unique_id=2079300591]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer" unique_id=1934266326]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/LowerTopBarMargin" unique_id=1934266326]
 layout_mode = 2
 
-[node name="TimerLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer" unique_id=426705722]
+[node name="MobileMenuButton" type="TextureButton" parent="TopBar/LowerTopBarMargin/HBoxContainer" unique_id=1376119657]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture_normal = ExtResource("4_sjdex")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Divider" type="Control" parent="TopBar/LowerTopBarMargin/HBoxContainer" unique_id=1463346186]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimerLabel" type="Label" parent="TopBar/LowerTopBarMargin/HBoxContainer" unique_id=426705722]
 unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="Divider" type="Control" parent="TopBar/MarginContainer/HBoxContainer" unique_id=226524302]
+[node name="Divider2" type="Control" parent="TopBar/LowerTopBarMargin/HBoxContainer" unique_id=226524302]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="KillCountLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1611202531]
+[node name="KillCountLabel" type="Label" parent="TopBar/LowerTopBarMargin/HBoxContainer" unique_id=1611202531]
 unique_name_in_owner = true
 layout_mode = 2
 
